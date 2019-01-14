@@ -1,8 +1,4 @@
-<header>
-Things to Do
-============
-</header>
-
+##### Title ##### 
 <figure>
     <img src="/img/galton2.gif" width="100%">
 </figure>
