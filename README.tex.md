@@ -65,19 +65,15 @@ And we see the result goes to 0 as n grows:
 2.2650737015525926e-10
 ```
 
-#### From Law of large numbers to Central Limit thorem####
+#### From Law of large numbers to Central Limit thorem ####
 
 Lets take now a fair dice with same probability of returning 1, 2, 3, 4, 5 or 6 and expected value of 3.5 from:
 
+$$\frac{1+2+3+4+5+6}{6} = 3.5$$
 
-  $$\frac{1+2+3+4+5+6}{6} = 3.5$$
+The outcomes of the dice will produce a random variable with 6 equiprobable events and a [discrete uniform distribution ](https://en.wikipedia.org/wiki/Discrete_uniform_distribution). We can plot a set of samples as an histogram to see the shape of the results, so lets do it with 10000 dice throws:
 
-
-The dice will produce a random variable with 6 equiprobable events, and being a random variable means it is a probability distribution (more precisely it is a [discrete uniform distribution ](https://en.wikipedia.org/wiki/Discrete_uniform_distribution), and actually the previous mean could have been calculated as 
-  $\frac{1+6}{2} = 3.5$
- as is shown in the wikipedia article).
-
-As a distribution we can plot a set of samples as an histogram to see the shape of the results, so lets do it with 10000 dice throws:
+[discreteUniformDistribution.py](https://github.com/joseprupi/randomwalk/blob/master/python/discreteUniformDistribution.py)
 
 ```python
 import matplotlib.pyplot as plt
@@ -100,13 +96,13 @@ No surprises here, we closely had the six values of the dice with the same proba
 
 Now we will create another probability distribution with a new random variable. The random variable we will use now is the mean of the result of throwing the dice three times. So it will be defined as:
 
+$$X= \frac{x_1+x_2+x_3}{3}$$
 
-  $$X= \frac{x_1+x_2+x_3}{3}$$
-
-
-The outcome of the random variable is created at the same time with three other random values which are three events with 6 equiprobable results. Why not?
+The outcome of the random variable is created at the same time with three other random values which are three events with 6 equiprobable results.
 
 As we have done before we will create a set of 10000 trials for our new random variable and see the shape of the results:
+
+[discreteUniformDistribution2.py](https://github.com/joseprupi/randomwalk/blob/master/python/discreteUniformDistribution2.py)
 
 ```python
 import matplotlib.pyplot as plt
@@ -124,11 +120,9 @@ plt.hist(rolls, bins=30)
 plt.show()
 ```
 
- 
 <figure>
     <img src="/img/dice2.png" >
 </figure>
-
 
 Things change here as we see now these results have the shape of a normal distribution with mean 3.5, which makes sense. 
 
@@ -138,17 +132,13 @@ As intuition would say the graph grows as you get closer to 3.5, the expected va
 
 Lets now create another two random variables, this time we will calculate the mean for 40 and 1000 dice throws respectively.
 
-
-  $$X= \frac{x_1+x_2+...+x_{40}}{40}$$
-
+$$X= \frac{x_1+x_2+...+x_{40}}{40}$$
 
 and:
 
+$$X= \frac{x_1+x_2+...+x_{1000}}{1000}$$
 
-  $$X= \frac{x_1+x_2+...+x_{1000}}{1000}$$
-
-
- If we plot the results:
+If we plot the results:
 
 ```python
 import matplotlib.pyplot as plt
@@ -166,7 +156,6 @@ plt.hist(rolls, bins=30)
 plt.show()
 ```
 
- 
 <figure>
     <img src="/img/dice3.png" >
 </figure>
@@ -187,12 +176,10 @@ for i in range(10000):
 plt.hist(rolls, bins=30)
 plt.show()
 ```
-
  
 <figure>
     <img src="/img/dice4.png" >
 </figure>
-
 
 Again the outcomes shape looks like a normal distribution with mean 3.5. But something else can be seen from these two graphs, and that is the variance for the new distributions we have created seems to become smaller as we increase the number of dice throws. 
 
@@ -206,23 +193,17 @@ $$X= \frac{1}{n}\sum_{i=1}^n{x_i}$$
 
 Where each  $x_i$  has a mean of $\mu$. To calculate the expected value of the new distribution we can do:
 
-
 $$\mathbb{E}[X]= \mathbb{E}\Bigg[ \frac{1}{n}\sum_{i=1}^n{x_i} \Bigg] = \frac{1}{n} \sum_{i=1}^n{\mathbb{E}x_i}= \frac{1}{n} \sum_{i=1}^n{\mu}=\mu $$
-
 
 and we see that  $\mu$  does not depend on  $n$ , so it does not matter how large n grows that mean will remain invariant.
 
 To get the variance:
 
-
-  $$Var(X)=Var\Bigg(\frac{1}{n}\sum_{i=1}^n{x_i}\Bigg)=\frac{1}{n^2}Var\Bigg(\sum_{i=1}^n{x_i}\Bigg) $$
-
+$$Var(X)=Var\Bigg(\frac{1}{n}\sum_{i=1}^n{x_i}\Bigg)=\frac{1}{n^2}Var\Bigg(\sum_{i=1}^n{x_i}\Bigg) $$
 
 And as all  $x_i$  are independent with  $\sigma^2$  variance we have that:
 
-
-  $$Var(X)=\frac{1}{n^2}\sum_{i=1}^n{\sigma^2}=\frac{1}{n^2}n\sigma^2=\frac{\sigma^2}{n} $$
-
+$$Var(X)=\frac{1}{n^2}\sum_{i=1}^n{\sigma^2}=\frac{1}{n^2}n\sigma^2=\frac{\sigma^2}{n} $$
 
 For the variance case we see it goes to 0 when n goes to inifinity, which explains the results from the previous examples.
 
@@ -230,20 +211,15 @@ For the variance case we see it goes to 0 when n goes to inifinity, which explai
 
 We have seen the distribution for a random variable like the one shown below will be another random variable with the same mean than the underlying one and decreasing variance as n increases:
 
-
-  $$Y_1= \frac{x_1+x_2+...+x_{n}}{n}$$
-
+$$Y_1= \frac{x_1+x_2+...+x_{n}}{n}$$
 
 What we can do now is substract  $\mu$  to this variable and see how this average is deviated from the expected value (law of large numbers). As this is the "error" of the average compared to the expected value of the underlying variable this will be some distribution centered to 0:
 
+$$Y_2= \frac{x_1+x_2+...+x_{n}}{n}-\mu$$
 
-  $$Y_2= \frac{x_1+x_2+...+x_{n}}{n}-\mu$$
+The underlying a variable we will use now is normally distributed $X \sim N(\mu,\,\sigma^{2})$ with $\mu=20$ and  $\sigma^2=10$ , this variable would be the equivalent to the dice we used in the previous section.
 
-
-The underlying a variable we will use now is normally distributed    $X \sim N(\mu,\,\sigma^{2})$
- with  $\mu=20$  and  $\sigma^2=10$ , this variable would be the equivalent to the dice we used in the previous section.
-
-[Entire code for graphs](https://github.com/joseprupi/stochastics/blob/master/centralLimitTheoremAverage.py)
+[centralLimitTheoremAverage.py](https://github.com/joseprupi/randomwalk/blob/master/python/centralLimitTheoremAverage.py)
 
 ```python
 
@@ -283,48 +259,36 @@ for i in range(10000):
     results.append(accum)
 
 ```
-
  
 <figure>
     <img src="/img/mean.png" >
 </figure>
 
-
-
 Red histograms show the normal distributed variable and blue ones show the result for  $Y_1$  which is the average of the random variable, we see the mean is the same than the normal one and the variance decreases as n increases (same behaviour as the dice example).
 
-Green histograms show  $Y_2$  variable which again has the shape of a normal distribution. As it is the deviaton from the expected value it is centered at 0 and also gets narrower as we increase n. This makes sense to me as we have seen from the law of lage numbers that the variance keeps decreasing as we increase the number of trials for the average so the error will also decrease.
+Green histograms show $Y_2$ variable which again has the shape of a normal distribution. As it is the deviaton from the expected value it is centered at 0 and also gets narrower as we increase n. This makes sense to me as we have seen from the law of lage numbers that the variance keeps decreasing as we increase the number of trials for the average so the error will also decrease.
 
 Next step would be try to scale this new variable to something that preserves the variance of the underlying random variable, and it turns out that scaling it to  $\sqrt{n}$  does the trick. 
 
 Actually we know that, if:
 
-
-  $$Y= kX, \quad\text{where}\quad X \sim N(\mu,\,\sigma^{2}) $$
-
+$$Y= kX, \quad\text{where}\quad X \sim N(\mu,\,\sigma^{2}) $$
 
 then:
 
-
-  $$Y \sim N(k\mu,\,k^2\sigma^{2}) $$
-
+$$Y \sim N(k\mu,\,k^2\sigma^{2}) $$
 
 So, if we had:
 
-
-  $$Var(X)=\frac{\sigma^2}{n} $$
-
+$$Var(X)=\frac{\sigma^2}{n} $$
 
 and multiply it by  $\sqrt{n}$, then:
 
-
-  $$\sqrt{n}Var(X) = n\frac{\sigma^2}{n}=\sigma^2$$
-
+$$\sqrt{n}Var(X) = n\frac{\sigma^2}{n}=\sigma^2$$
 
 So lets create now below random variable with same underlying variable X and add it to previous graphs in orange:
 
-
-  $$Y_3= \sqrt{n}(\frac{x_1+x_2+...+x_{n}}{n}-\mu)$$
+$$Y_3= \sqrt{n}(\frac{x_1+x_2+...+x_{n}}{n}-\mu)$$
 
 
 ```python
