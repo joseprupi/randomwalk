@@ -585,5 +585,3 @@ plt.show()
     <img src="/img/randomWalk3.png" >
 </figure>
 {:/} 
-
-
