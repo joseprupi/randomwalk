@@ -7,11 +7,11 @@ Some intution behind random walks
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 [Independent and identically distributed random variables](#independent-and-identically-distributed-random-variables)
-<p></p>
+
 [Law of large numbers](#law-of-large-numbers)
-<p></p>
+
 [From Law of large numbers to Central Limit thorem](#from-law-of-large-numbers-to-central-limit-thorem)
-<p></p>
+
 [Central limit theorem](#central-limit-theorem)
 
 [Random walk](#random-walk)
