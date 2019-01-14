@@ -16,7 +16,7 @@
 #### Independent and identically distributed random variables ####
 
 [Independent and identically distributed random variables (i.i.d.) ](https://en.wikipedia.org/wiki/Independent_and_identically_distributed_random_variables) are a set of random variables that have same distribution and are independent. Some exmaples of i.i.d. are tossing a coin or rolling a dice
-n times, each event is mutually independent from the other ones so the result when tossing the coin is not affected by any other event having all of them have same distribution.
+n times, each event is mutually independent from the other ones so the result when tossing the coin is not affected by any other event having all of them same distribution.
 
 #### Law of large numbers ####
 
@@ -290,6 +290,7 @@ So lets create now below random variable with same underlying variable X and add
 
 $$Y_3= \sqrt{n}(\frac{x_1+x_2+...+x_{n}}{n}-\mu)$$
 
+[centralLimitTheoremAverage2.py](https://github.com/joseprupi/randomwalk/blob/master/python/centralLimitTheoremAverage2.py)
 
 ```python
 
@@ -347,17 +348,15 @@ for i in range(10000):
     <img src="/img/clt2.png" >
 </figure>
 
-
 This is pretty much what CLT says, and formally this would be (from [Wikipedia](https://en.wikipedia.org/wiki/Central_limit_theorem)):
 
-**Suppose  ${X_1, X_2, …}$  is a sequence of i.i.d. random variables with  $E[X_i] = \mu$  and  $Var[X_i] = \sigma^2 < \infty$ . Then as n approaches infinity, the random variables  $\sqrt{n} (S_n − \mu)$  converge in distribution to a normal   $N(0,\sigma^2)$ :**
+**Suppose  ${X_1, X_2, …}$  is a sequence of i.i.d. random variables with  $E[X_i] = \mu$  and  $Var[X_i] = \sigma^2 < \infty$ . Then as n approaches infinity, the random variables  $\sqrt{n} (S_n − \mu)$  converge in distribution to a normal $N(0,\sigma^2)$ :**
 
- $${\sqrt {n}}\left(S_{n}-\mu \right)\ {\xrightarrow {d}}\ N\left(0,\sigma ^{2}\right) $$ 
+$${\sqrt {n}}\left(S_{n}-\mu \right)\ {\xrightarrow {d}}\ N\left(0,\sigma ^{2}\right) $$ 
 
 **Where:**
 
- $$
-S_{n}:={\frac {X_{1}+\cdots +X_{n}}{n}} $$ 
+$$S_{n}:={\frac {X_{1}+\cdots +X_{n}}{n}} $$ 
 
 Although this feels intuitieve to me I guess theory behind it is quite complex. I have seen this proved from [moment-generating functions](https://en.wikipedia.org/wiki/Moment-generating_function) and also these two answers from Stack Exchange give some more detail about this matter:
 
@@ -372,19 +371,21 @@ First few lines from [Wikepedia](https://en.wikipedia.org/wiki/Random_walk):
 
 Basically imagine the path someone would take if can do one step left or right with the same probability. To represent this we will create now a random variable X that can have values 1 and -1 with probability  $\frac{1}{2}$  each. Then:
 
- $$ E[X]= \frac{1}{2}1+\frac{1}{2}(-1) = 0$$ 
+$$ E[X]= \frac{1}{2}1+\frac{1}{2}(-1) = 0$$ 
 
- $$ Var(X)= E[X^2]-E[X]^2=\frac{1}{2}1^2+\frac{1}{2}(-1)^2-0=1$$  
+$$ Var(X)= E[X^2]-E[X]^2=\frac{1}{2}1^2+\frac{1}{2}(-1)^2-0=1$$  
 
 Applying the CLT to this variable we have:
 
- $${\sqrt {n}}\left(\frac {X_{1}+\cdots +X_{n}}{n}-0 \right)\ {\xrightarrow {}}\ N\left(0,1\right) $$ 
+$${\sqrt {n}}\left(\frac {X_{1}+\cdots +X_{n}}{n}-0 \right)\ {\xrightarrow {}}\ N\left(0,1\right) $$ 
 
 And with some algebra:
 
- $$\frac{1}{\sqrt{n}}\left( X_{1}+\cdots +X_{n} \right)\ {\xrightarrow {}}\ N\left(0,1\right) $$ 
+$$\frac{1}{\sqrt{n}}\left( X_{1}+\cdots +X_{n} \right)\ {\xrightarrow {}}\ N\left(0,1\right) $$ 
 
 Lets plot the variable X.
+
+[randomWalk1.py](https://github.com/joseprupi/randomwalk/blob/master/python/randomWalk1.py)
 
 ```python
 
@@ -447,12 +448,10 @@ plt.hist(results,bins = 40)
 plt.show()
 
 ```
-
  
 <figure>
     <img src="/img/randomWalk1.png" >
 </figure>
- 
 
 So, if we add n events for random variable X and scale this to  $\frac{1}{\sqrt{n}}$  we will have something close to a normal distribution with mean 0 and variance 1.
 
@@ -461,6 +460,8 @@ Now, if we multiply our variable X by  $\sqrt{n}$  we end up with a  $ N(0,n) $ 
 Whith this we see that as we keep incrementing the number of steps we take, the variance increases linearly to the steps and so the standard deviation will be  $\sqrt{n}$  making a random walk to stay "close" to 0.
 
 Up to now we have plotted the distributions for the variables taking into account the values it would take in terms of n, but we can also plot the sumations as a sequence of steps drawing a path in terms of n. We will draw so 500 of this paths taking 10000 steps. Also to see graphically how the paths remain as a normal distribution in time we have plotted the standard deviation  $\sqrt{n}$  as red lines.
+
+[randomWalk2.py](https://github.com/joseprupi/randomwalk/blob/master/python/randomWalk2.py)
 
 ```python
 
@@ -497,13 +498,13 @@ plt.show()
 
 ```
 
- 
 <figure>
     <img src="/img/randomWalk2.png" >
-</figure>
- 
+</figure> 
 
 And to have an idea on how close the paths remain to 0 we will also plot the functions  $y=x$  and  $y=-x$ . Theory says that although really improvable those are possible values and would be the equivalent to have taken 10000 steps left or 10000 steps right in one of the paths.
+
+[randomWalk3.py](https://github.com/joseprupi/randomwalk/blob/master/python/randomWalk3.py)
 
 ```python
 
@@ -544,7 +545,6 @@ plt.show()
 
 ```
 
- 
 <figure>
     <img src="/img/randomWalk3.png" >
 </figure>
