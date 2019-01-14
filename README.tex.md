@@ -202,19 +202,15 @@ With this we have seen that from an underlying uniform distribution we can creat
 
 We can now proof matematically these results. We will first generalize our distribution as:
 
+$$X= \frac{1}{n}\sum_{i=1}^n{x_i}$$
 
-  $$X= \frac{1}{n}\sum_{i=1}^n{x_i}$$
-
-
-Where each  $x_i$  has a mean of 
-  $\mu$
-. To calculate the expected value of the new distribution we can do:
+Where each  $x_i$  has a mean of $\mu$. To calculate the expected value of the new distribution we can do:
 
 
-  $$\mathbb{E}[X]= \mathbb{E}\Bigg[ \frac{1}{n}\sum_{i=1}^n{x_i} \Bigg] = \frac{1}{n} \sum_{i=1}^n{\mathbb{E}x_i}= \frac{1}{n} \sum_{i=1}^n{\mu}=\mu $$
+$$\mathbb{E}[X]= \mathbb{E}\Bigg[ \frac{1}{n}\sum_{i=1}^n{x_i} \Bigg] = \frac{1}{n} \sum_{i=1}^n{\mathbb{E}x_i}= \frac{1}{n} \sum_{i=1}^n{\mu}=\mu $$
 
 
-and we see that  $$\mu$$  does not depend on  $$n$$ , so it does not matter how large n grows that mean will remain invariant.
+and we see that  $\mu$  does not depend on  $n$ , so it does not matter how large n grows that mean will remain invariant.
 
 To get the variance:
 
@@ -222,7 +218,7 @@ To get the variance:
   $$Var(X)=Var\Bigg(\frac{1}{n}\sum_{i=1}^n{x_i}\Bigg)=\frac{1}{n^2}Var\Bigg(\sum_{i=1}^n{x_i}\Bigg) $$
 
 
-And as all  $$x_i$$  are independent with  $$\sigma^2$$  variance we have that:
+And as all  $x_i$  are independent with  $\sigma^2$  variance we have that:
 
 
   $$Var(X)=\frac{1}{n^2}\sum_{i=1}^n{\sigma^2}=\frac{1}{n^2}n\sigma^2=\frac{\sigma^2}{n} $$
@@ -238,14 +234,14 @@ We have seen the distribution for a random variable like the one shown below wil
   $$Y_1= \frac{x_1+x_2+...+x_{n}}{n}$$
 
 
-What we can do now is substract  $$\mu$$  to this variable and see how this average is deviated from the expected value (law of large numbers). As this is the "error" of the average compared to the expected value of the underlying variable this will be some distribution centered to 0:
+What we can do now is substract  $\mu$  to this variable and see how this average is deviated from the expected value (law of large numbers). As this is the "error" of the average compared to the expected value of the underlying variable this will be some distribution centered to 0:
 
 
   $$Y_2= \frac{x_1+x_2+...+x_{n}}{n}-\mu$$
 
 
-The underlying a variable we will use now is normally distributed    $$X \sim N(\mu,\,\sigma^{2})$$
- with  $$\mu=20$$  and  $$\sigma^2=10$$ , this variable would be the equivalent to the dice we used in the previous section.
+The underlying a variable we will use now is normally distributed    $X \sim N(\mu,\,\sigma^{2})$
+ with  $\mu=20$  and  $\sigma^2=10$ , this variable would be the equivalent to the dice we used in the previous section.
 
 [Entire code for graphs](https://github.com/joseprupi/stochastics/blob/master/centralLimitTheoremAverage.py)
 
@@ -295,11 +291,11 @@ for i in range(10000):
 {:/}
 
 
-Red histograms show the normal distributed variable and blue ones show the result for  $$Y_1$$  which is the average of the random variable, we see the mean is the same than the normal one and the variance decreases as n increases (same behaviour as the dice example).
+Red histograms show the normal distributed variable and blue ones show the result for  $Y_1$  which is the average of the random variable, we see the mean is the same than the normal one and the variance decreases as n increases (same behaviour as the dice example).
 
-Green histograms show  $$Y_2$$  variable which again has the shape of a normal distribution. As it is the deviaton from the expected value it is centered at 0 and also gets narrower as we increase n. This makes sense to me as we have seen from the law of lage numbers that the variance keeps decreasing as we increase the number of trials for the average so the error will also decrease.
+Green histograms show  $Y_2$  variable which again has the shape of a normal distribution. As it is the deviaton from the expected value it is centered at 0 and also gets narrower as we increase n. This makes sense to me as we have seen from the law of lage numbers that the variance keeps decreasing as we increase the number of trials for the average so the error will also decrease.
 
-Next step would be try to scale this new variable to something that preserves the variance of the underlying random variable, and it turns out that scaling it to  $$\sqrt{n}$$  does the trick. 
+Next step would be try to scale this new variable to something that preserves the variance of the underlying random variable, and it turns out that scaling it to  $\sqrt{n}$  does the trick. 
 
 Actually we know that, if:
 
@@ -319,7 +315,7 @@ So, if we had:
   $$Var(X)=\frac{\sigma^2}{n} $$
 
 
-and multiply it by  $$\sqrt{n}$$, then:
+and multiply it by  $\sqrt{n}$, then:
 
 
   $$\sqrt{n}Var(X) = n\frac{\sigma^2}{n}=\sigma^2$$
@@ -390,7 +386,7 @@ for i in range(10000):
 
 This is pretty much what CLT says, and formally this would be (from [Wikipedia](https://en.wikipedia.org/wiki/Central_limit_theorem)):
 
-**Suppose  $${X_1, X_2, …}$$  is a sequence of i.i.d. random variables with  $$E[X_i] = \mu$$  and  $$Var[X_i] = \sigma^2 < \infty$$ . Then as n approaches infinity, the random variables  $$\sqrt{n} (S_n − \mu)$$  converge in distribution to a normal   $$N(0,\sigma^2)$$ :**
+**Suppose  ${X_1, X_2, …}$  is a sequence of i.i.d. random variables with  $E[X_i] = \mu$  and  $Var[X_i] = \sigma^2 < \infty$ . Then as n approaches infinity, the random variables  $\sqrt{n} (S_n − \mu)$  converge in distribution to a normal   $N(0,\sigma^2)$ :**
 
  $${\sqrt {n}}\left(S_{n}-\mu \right)\ {\xrightarrow {d}}\ N\left(0,\sigma ^{2}\right) $$ 
 
@@ -408,9 +404,9 @@ Although this feels intuitieve to me I guess theory behind it is quite complex. 
 
 First few lines from [Wikepedia](https://en.wikipedia.org/wiki/Random_walk):
 
-**A random walk is a mathematical object, known as a stochastic or random process, that describes a path that consists of a succession of random steps on some mathematical space such as the integers. An elementary example of a random walk is the random walk on the integer number line  $$\mathbb {Z}$$ , which starts at 0 and at each step moves +1 or −1 with equal probability.**
+**A random walk is a mathematical object, known as a stochastic or random process, that describes a path that consists of a succession of random steps on some mathematical space such as the integers. An elementary example of a random walk is the random walk on the integer number line  $\mathbb {Z}$ , which starts at 0 and at each step moves +1 or −1 with equal probability.**
 
-Basically imagine the path someone would take if can do one step left or right with the same probability. To represent this we will create now a random variable X that can have values 1 and -1 with probability  $$\frac{1}{2}$$  each. Then:
+Basically imagine the path someone would take if can do one step left or right with the same probability. To represent this we will create now a random variable X that can have values 1 and -1 with probability  $\frac{1}{2}$  each. Then:
 
  $$ E[X]= \frac{1}{2}1+\frac{1}{2}(-1) = 0$$ 
 
@@ -494,13 +490,13 @@ plt.show()
 </figure>
 {:/} 
 
-So, if we add n events for random variable X and scale this to  $$\frac{1}{\sqrt{n}}$$  we will have something close to a normal distribution with mean 0 and variance 1.
+So, if we add n events for random variable X and scale this to  $\frac{1}{\sqrt{n}}$  we will have something close to a normal distribution with mean 0 and variance 1.
 
-Now, if we multiply our variable X by  $$\sqrt{n}$$  we end up with a  $$ N(0,n) $$  distributed variable, which is what a random walk is doing if we started at point 0.
+Now, if we multiply our variable X by  $\sqrt{n}$  we end up with a  $ N(0,n) $  distributed variable, which is what a random walk is doing if we started at point 0.
 
-Whith this we see that as we keep incrementing the number of steps we take, the variance increases linearly to the steps and so the standard deviation will be  $$\sqrt{n}$$  making a random walk to stay "close" to 0.
+Whith this we see that as we keep incrementing the number of steps we take, the variance increases linearly to the steps and so the standard deviation will be  $\sqrt{n}$  making a random walk to stay "close" to 0.
 
-Up to now we have plotted the distributions for the variables taking into account the values it would take in terms of n, but we can also plot the sumations as a sequence of steps drawing a path in terms of n. We will draw so 500 of this paths taking 10000 steps. Also to see graphically how the paths remain as a normal distribution in time we have plotted the standard deviation  $$\sqrt{n}$$  as red lines.
+Up to now we have plotted the distributions for the variables taking into account the values it would take in terms of n, but we can also plot the sumations as a sequence of steps drawing a path in terms of n. We will draw so 500 of this paths taking 10000 steps. Also to see graphically how the paths remain as a normal distribution in time we have plotted the standard deviation  $\sqrt{n}$  as red lines.
 
 ```python
 
@@ -543,7 +539,7 @@ plt.show()
 </figure>
 {:/} 
 
-And to have an idea on how close the paths remain to 0 we will also plot the functions  $$y=x$$  and  $$y=-x$$ . Theory says that although really improvable those are possible values and would be the equivalent to have taken 10000 steps left or 10000 steps right in one of the paths.
+And to have an idea on how close the paths remain to 0 we will also plot the functions  $y=x$  and  $y=-x$ . Theory says that although really improvable those are possible values and would be the equivalent to have taken 10000 steps left or 10000 steps right in one of the paths.
 
 ```python
 
@@ -588,4 +584,6 @@ plt.show()
 <figure>
     <img src="/img/randomWalk3.png" >
 </figure>
-{:/}
+{:/} 
+
+
