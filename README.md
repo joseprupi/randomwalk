@@ -1,4 +1,7 @@
-Some intution behind random walks
+<header>
+Things to Do
+============
+</header>
 
 <figure>
     <img src="/img/galton2.gif" width="100%">
