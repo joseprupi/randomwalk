@@ -3,8 +3,6 @@
     <img src="/img/galton2.gif" width="100%">
 </figure>
 
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
 [Independent and identically distributed random variables](#independent-and-identically-distributed-random-variables)
 
 [Law of large numbers](#law-of-large-numbers)
@@ -28,13 +26,11 @@ The easiest example I can think about would be tossing a coin and accumulate the
 
 In a formal way we can write the Law of Large Numbers as:
 
-{% raw %}
-  <p align="center"><img src="/tex/56b9c5a34cf36d5393e7746e8e12fc2e.svg?invert_in_darkmode&sanitize=true" align=middle width=259.35505695pt height=23.72585325pt/></p>
-{% endraw %}
+<p align="center"><img src="/tex/56b9c5a34cf36d5393e7746e8e12fc2e.svg?invert_in_darkmode&sanitize=true" align=middle width=259.35505695pt height=23.72585325pt/></p>
 
 What the law is saying is that if we have a margin error {% raw %} <p align="center"><img src="/tex/0051404e5a38718fb1247fbe663672e1.svg?invert_in_darkmode&sanitize=true" align=middle width=6.672392099999999pt height=7.0776222pt/></p>{% endraw %} and we substract the mean from the average of some samples this error will be decreasing until it goes to 0 if we increase the number of samples.
 
-Lets try to interpret the above formula with an example. We will toss a fair coin n times and accumulate the result knowing in advance that {% raw %} <p align="center"><img src="/tex/5a628fcdb4ffbd32bb16a7be4c398b0a.svg?invert_in_darkmode&sanitize=true" align=middle width=52.82719695pt height=13.789957499999998pt/></p>{% endraw %} as we have {% raw %} <p align="center"><img src="/tex/898e59888e4f3abf104d782e0f45fbae.svg?invert_in_darkmode&sanitize=true" align=middle width=8.21920935pt height=32.990165999999995pt/></p>{% endraw %} of probabilities of being head and {% raw %} <p align="center"><img src="/tex/898e59888e4f3abf104d782e0f45fbae.svg?invert_in_darkmode&sanitize=true" align=middle width=8.21920935pt height=32.990165999999995pt/></p>{% endraw %} of being tails (which is a Bernoulli distribution with {% raw %} <p align="center"><img src="/tex/d60aa075a6ef2e4b985e90f8345265d1.svg?invert_in_darkmode&sanitize=true" align=middle width=40.3800045pt height=32.990165999999995pt/></p>{% endraw %}) and also taking {% raw %} <p align="center"><img src="/tex/53eca4581e4548f11b17c27d85002985.svg?invert_in_darkmode&sanitize=true" align=middle width=49.594665449999994pt height=10.5936072pt/></p>{% endraw %}.
+Lets try to interpret the above formula with an example. We will toss a fair coin n times and accumulate the result knowing in advance that <img src="/tex/98f64a4f5e76cba75db070bd1c1703b5.svg?invert_in_darkmode&sanitize=true" align=middle width=52.82719694999999pt height=21.18721440000001pt/> as we have <img src="/tex/47d54de4e337a06266c0e1d22c9b417b.svg?invert_in_darkmode&sanitize=true" align=middle width=6.552545999999997pt height=27.77565449999998pt/> of probabilities of being head and {% raw %} <p align="center"><img src="/tex/898e59888e4f3abf104d782e0f45fbae.svg?invert_in_darkmode&sanitize=true" align=middle width=8.21920935pt height=32.990165999999995pt/></p>{% endraw %} of being tails (which is a Bernoulli distribution with {% raw %} <p align="center"><img src="/tex/d60aa075a6ef2e4b985e90f8345265d1.svg?invert_in_darkmode&sanitize=true" align=middle width=40.3800045pt height=32.990165999999995pt/></p>{% endraw %}) and also taking {% raw %} <p align="center"><img src="/tex/53eca4581e4548f11b17c27d85002985.svg?invert_in_darkmode&sanitize=true" align=middle width=49.594665449999994pt height=10.5936072pt/></p>{% endraw %}.
 
 To demonstrate it we have to calculate below formula increasing n and see what the results are:
 
