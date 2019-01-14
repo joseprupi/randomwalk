@@ -26,21 +26,21 @@ The easiest example I can think about would be tossing a coin and accumulate the
 
 In a formal way we can write the Law of Large Numbers as:
 
-$$\lim_{n\to\infty}Pr(|\overline{X_n}-\mu| \geq\epsilon) = 0 \text{  for any  }\epsilon$$
+<p align="center"><img src="/tex/56b9c5a34cf36d5393e7746e8e12fc2e.svg?invert_in_darkmode&sanitize=true" align=middle width=259.35505695pt height=23.72585325pt/></p>
 
-What the law is saying is that if we have a margin error  $\epsilon $ and we substract the mean from the average of some samples this error will be decreasing until it goes to 0 if we increase the number of samples.
+What the law is saying is that if we have a margin error  <img src="/tex/1926c401973f24b4db4f35dca2eb381d.svg?invert_in_darkmode&sanitize=true" align=middle width=6.672392099999992pt height=14.15524440000002pt/> and we substract the mean from the average of some samples this error will be decreasing until it goes to 0 if we increase the number of samples.
 
-Lets try to interpret the above formula with an example. We will toss a fair coin n times and accumulate the result knowing in advance that $\mu = 0.5$ as we have $\frac{1}{2}$ of probabilities of being head and  $\frac{1}{2}$ of being tails (which is a Bernoulli distribution with  $p=\frac{1}{2}$) and also taking  $\epsilon = 0.1$.
+Lets try to interpret the above formula with an example. We will toss a fair coin n times and accumulate the result knowing in advance that <img src="/tex/98f64a4f5e76cba75db070bd1c1703b5.svg?invert_in_darkmode&sanitize=true" align=middle width=52.82719694999999pt height=21.18721440000001pt/> as we have <img src="/tex/47d54de4e337a06266c0e1d22c9b417b.svg?invert_in_darkmode&sanitize=true" align=middle width=6.552545999999997pt height=27.77565449999998pt/> of probabilities of being head and  <img src="/tex/47d54de4e337a06266c0e1d22c9b417b.svg?invert_in_darkmode&sanitize=true" align=middle width=6.552545999999997pt height=27.77565449999998pt/> of being tails (which is a Bernoulli distribution with  <img src="/tex/74eb2654232365fbb8df3ff92ed3127b.svg?invert_in_darkmode&sanitize=true" align=middle width=38.71334114999999pt height=27.77565449999998pt/>) and also taking  <img src="/tex/436d9a3fbe125b99e3afb8e2aaa85347.svg?invert_in_darkmode&sanitize=true" align=middle width=49.59466544999998pt height=21.18721440000001pt/>.
 
 To demonstrate it we have to calculate below formula increasing n and see what the results are:
 
 
-  $$\lim_{n\to\infty}Pr(|\overline{X_n}-0.5| \geq0.1) = 0$$
+  <p align="center"><img src="/tex/2f55ba404c3005e5c3f74e2c07a548dd.svg?invert_in_darkmode&sanitize=true" align=middle width=216.42502365pt height=23.72585325pt/></p>
 
 
 And this is the equivalent to say that the probability of having the mean out of the range 0.4 to 0.6 decreases to 0 if we increment n, or that below probability goes to 0:
 
-$$Pr(0.4 \geq \overline{X_n} \geq0.6)$$
+<p align="center"><img src="/tex/8c92df0aef9ab7691cbdfb6f88f0df56.svg?invert_in_darkmode&sanitize=true" align=middle width=141.90637725pt height=17.97242865pt/></p>
 
 We will do this programatically executing the experiment with n=10, n=50, n=100, n=500 and n=1000 coins calculating the cumulative probability using the [cdf(x,m,p) function](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.binom.html) from scipy, where x is the number of positive trials, n the number of trials and p the probability for the binary distribution.
 
@@ -70,11 +70,11 @@ And we see the result goes to 0 as n grows:
 Lets take now a fair dice with same probability of returning 1, 2, 3, 4, 5 or 6 and expected value of 3.5 from:
 
 
-  $$\frac{1+2+3+4+5+6}{6} = 3.5$$
+  <p align="center"><img src="/tex/92104730644645cf39c4962bef1c9d32.svg?invert_in_darkmode&sanitize=true" align=middle width=194.66601495pt height=32.990165999999995pt/></p>
 
 
 The dice will produce a random variable with 6 equiprobable events, and being a random variable means it is a probability distribution (more precisely it is a [discrete uniform distribution ](https://en.wikipedia.org/wiki/Discrete_uniform_distribution), and actually the previous mean could have been calculated as 
-  $\frac{1+6}{2} = 3.5$
+  <img src="/tex/712b5b831e7e1c2392804a95288502c6.svg?invert_in_darkmode&sanitize=true" align=middle width=68.09132385pt height=27.77565449999998pt/>
  as is shown in the wikipedia article).
 
 As a distribution we can plot a set of samples as an histogram to see the shape of the results, so lets do it with 10000 dice throws:
@@ -101,7 +101,7 @@ No surprises here, we closely had the six values of the dice with the same proba
 Now we will create another probability distribution with a new random variable. The random variable we will use now is the mean of the result of throwing the dice three times. So it will be defined as:
 
 
-  $$X= \frac{x_1+x_2+x_3}{3}$$
+  <p align="center"><img src="/tex/af94d99de45f27617335d971965302ae.svg?invert_in_darkmode&sanitize=true" align=middle width=129.2895417pt height=31.985609699999994pt/></p>
 
 
 The outcome of the random variable is created at the same time with three other random values which are three events with 6 equiprobable results. Why not?
@@ -139,13 +139,13 @@ As intuition would say the graph grows as you get closer to 3.5, the expected va
 Lets now create another two random variables, this time we will calculate the mean for 40 and 1000 dice throws respectively.
 
 
-  $$X= \frac{x_1+x_2+...+x_{40}}{40}$$
+  <p align="center"><img src="/tex/d3fc87b4681b9aba5d4ee45a9564e65a.svg?invert_in_darkmode&sanitize=true" align=middle width=169.63194105pt height=31.985609699999994pt/></p>
 
 
 and:
 
 
-  $$X= \frac{x_1+x_2+...+x_{1000}}{1000}$$
+  <p align="center"><img src="/tex/e543f9bfb290921fe1111de0109d455e.svg?invert_in_darkmode&sanitize=true" align=middle width=182.7370248pt height=31.985609699999994pt/></p>
 
 
  If we plot the results:
@@ -203,29 +203,29 @@ With this we have seen that from an underlying uniform distribution we can creat
 We can now proof matematically these results. We will first generalize our distribution as:
 
 
-  $$X= \frac{1}{n}\sum_{i=1}^n{x_i}$$
+  <p align="center"><img src="/tex/a10e9b01e8b50621375e34d9303508f5.svg?invert_in_darkmode&sanitize=true" align=middle width=93.90791355pt height=44.89738935pt/></p>
 
 
-Where each  $x_i$  has a mean of 
-  $\mu$
+Where each  <img src="/tex/9fc20fb1d3825674c6a279cb0d5ca636.svg?invert_in_darkmode&sanitize=true" align=middle width=14.045887349999989pt height=14.15524440000002pt/>  has a mean of 
+  <img src="/tex/07617f9d8fe48b4a7b3f523d6730eef0.svg?invert_in_darkmode&sanitize=true" align=middle width=9.90492359999999pt height=14.15524440000002pt/>
 . To calculate the expected value of the new distribution we can do:
 
 
-  $$\mathbb{E}[X]= \mathbb{E}\Bigg[ \frac{1}{n}\sum_{i=1}^n{x_i} \Bigg] = \frac{1}{n} \sum_{i=1}^n{\mathbb{E}x_i}= \frac{1}{n} \sum_{i=1}^n{\mu}=\mu $$
+  <p align="center"><img src="/tex/0cb01a8adec86a5b76199f4a55421c8c.svg?invert_in_darkmode&sanitize=true" align=middle width=342.41918534999996pt height=49.315569599999996pt/></p>
 
 
-and we see that  $$\mu$$  does not depend on  $$n$$ , so it does not matter how large n grows that mean will remain invariant.
+and we see that  <p align="center"><img src="/tex/1b9e50bced33289e4433ee37abc0d00a.svg?invert_in_darkmode&sanitize=true" align=middle width=9.904923599999998pt height=10.2739725pt/></p>  does not depend on  <p align="center"><img src="/tex/b49da7325822089835b531a5fce8b94e.svg?invert_in_darkmode&sanitize=true" align=middle width=9.866876249999999pt height=7.0776222pt/></p> , so it does not matter how large n grows that mean will remain invariant.
 
 To get the variance:
 
 
-  $$Var(X)=Var\Bigg(\frac{1}{n}\sum_{i=1}^n{x_i}\Bigg)=\frac{1}{n^2}Var\Bigg(\sum_{i=1}^n{x_i}\Bigg) $$
+  <p align="center"><img src="/tex/c75a5e30c0090a65fc234db09ccc9f89.svg?invert_in_darkmode&sanitize=true" align=middle width=336.17817255pt height=49.315569599999996pt/></p>
 
 
-And as all  $$x_i$$  are independent with  $$\sigma^2$$  variance we have that:
+And as all  <p align="center"><img src="/tex/96de47a534893e2f93c9edceffaef3d1.svg?invert_in_darkmode&sanitize=true" align=middle width=14.045887349999997pt height=9.54335085pt/></p>  are independent with  <p align="center"><img src="/tex/0530bb865eed5e939024e30539ca9dd2.svg?invert_in_darkmode&sanitize=true" align=middle width=16.5354288pt height=14.202794099999998pt/></p>  variance we have that:
 
 
-  $$Var(X)=\frac{1}{n^2}\sum_{i=1}^n{\sigma^2}=\frac{1}{n^2}n\sigma^2=\frac{\sigma^2}{n} $$
+  <p align="center"><img src="/tex/a324154fa428d8c9ee69b05f386714e1.svg?invert_in_darkmode&sanitize=true" align=middle width=258.7593096pt height=44.89738935pt/></p>
 
 
 For the variance case we see it goes to 0 when n goes to inifinity, which explains the results from the previous examples.
@@ -235,17 +235,17 @@ For the variance case we see it goes to 0 when n goes to inifinity, which explai
 We have seen the distribution for a random variable like the one shown below will be another random variable with the same mean than the underlying one and decreasing variance as n increases:
 
 
-  $$Y_1= \frac{x_1+x_2+...+x_{n}}{n}$$
+  <p align="center"><img src="/tex/211af9d67fa4f5b871e7e0c8823365a6.svg?invert_in_darkmode&sanitize=true" align=middle width=166.6620714pt height=31.985609699999994pt/></p>
 
 
-What we can do now is substract  $$\mu$$  to this variable and see how this average is deviated from the expected value (law of large numbers). As this is the "error" of the average compared to the expected value of the underlying variable this will be some distribution centered to 0:
+What we can do now is substract  <p align="center"><img src="/tex/1b9e50bced33289e4433ee37abc0d00a.svg?invert_in_darkmode&sanitize=true" align=middle width=9.904923599999998pt height=10.2739725pt/></p>  to this variable and see how this average is deviated from the expected value (law of large numbers). As this is the "error" of the average compared to the expected value of the underlying variable this will be some distribution centered to 0:
 
 
-  $$Y_2= \frac{x_1+x_2+...+x_{n}}{n}-\mu$$
+  <p align="center"><img src="/tex/db5bacad77438c75a742400214471d56.svg?invert_in_darkmode&sanitize=true" align=middle width=198.63078345pt height=31.985609699999994pt/></p>
 
 
-The underlying a variable we will use now is normally distributed    $$X \sim N(\mu,\,\sigma^{2})$$
- with  $$\mu=20$$  and  $$\sigma^2=10$$ , this variable would be the equivalent to the dice we used in the previous section.
+The underlying a variable we will use now is normally distributed    <p align="center"><img src="/tex/0a177a45ff5cdf898aacade780066b6d.svg?invert_in_darkmode&sanitize=true" align=middle width=101.91950835pt height=18.312383099999998pt/></p>
+ with  <p align="center"><img src="/tex/44b7b29ea346f5094995ee2985e88d09.svg?invert_in_darkmode&sanitize=true" align=middle width=48.26097375pt height=13.789957499999998pt/></p>  and  <p align="center"><img src="/tex/ec9c53cd1e2d6717f754b7eaed71cfa9.svg?invert_in_darkmode&sanitize=true" align=middle width=55.7133918pt height=14.202794099999998pt/></p> , this variable would be the equivalent to the dice we used in the previous section.
 
 [Entire code for graphs](https://github.com/joseprupi/stochastics/blob/master/centralLimitTheoremAverage.py)
 
@@ -295,40 +295,40 @@ for i in range(10000):
 {:/}
 
 
-Red histograms show the normal distributed variable and blue ones show the result for  $$Y_1$$  which is the average of the random variable, we see the mean is the same than the normal one and the variance decreases as n increases (same behaviour as the dice example).
+Red histograms show the normal distributed variable and blue ones show the result for  <p align="center"><img src="/tex/a52c4114f51e5e06240be9e22063c43a.svg?invert_in_darkmode&sanitize=true" align=middle width=16.095948pt height=13.698590399999999pt/></p>  which is the average of the random variable, we see the mean is the same than the normal one and the variance decreases as n increases (same behaviour as the dice example).
 
-Green histograms show  $$Y_2$$  variable which again has the shape of a normal distribution. As it is the deviaton from the expected value it is centered at 0 and also gets narrower as we increase n. This makes sense to me as we have seen from the law of lage numbers that the variance keeps decreasing as we increase the number of trials for the average so the error will also decrease.
+Green histograms show  <p align="center"><img src="/tex/2aafe701b11f6bbc371a79d04f4a1c91.svg?invert_in_darkmode&sanitize=true" align=middle width=16.095948pt height=13.698590399999999pt/></p>  variable which again has the shape of a normal distribution. As it is the deviaton from the expected value it is centered at 0 and also gets narrower as we increase n. This makes sense to me as we have seen from the law of lage numbers that the variance keeps decreasing as we increase the number of trials for the average so the error will also decrease.
 
-Next step would be try to scale this new variable to something that preserves the variance of the underlying random variable, and it turns out that scaling it to  $$\sqrt{n}$$  does the trick. 
+Next step would be try to scale this new variable to something that preserves the variance of the underlying random variable, and it turns out that scaling it to  <p align="center"><img src="/tex/80c7c204f22b8821ddd1a8ffffae8d7d.svg?invert_in_darkmode&sanitize=true" align=middle width=23.56554915pt height=16.438356pt/></p>  does the trick. 
 
 Actually we know that, if:
 
 
-  $$Y= kX, \quad\text{where}\quad X \sim N(\mu,\,\sigma^{2}) $$
+  <p align="center"><img src="/tex/50d2594f8d481e524516e25fa88311eb.svg?invert_in_darkmode&sanitize=true" align=middle width=242.34178484999998pt height=18.312383099999998pt/></p>
 
 
 then:
 
 
-  $$Y \sim N(k\mu,\,k^2\sigma^{2}) $$
+  <p align="center"><img src="/tex/8725c82f1523a3bf307fbc1aaaf7ca88.svg?invert_in_darkmode&sanitize=true" align=middle width=125.7324057pt height=18.312383099999998pt/></p>
 
 
 So, if we had:
 
 
-  $$Var(X)=\frac{\sigma^2}{n} $$
+  <p align="center"><img src="/tex/7114934f5da3d81b7b5c5231790ecfc5.svg?invert_in_darkmode&sanitize=true" align=middle width=98.74578779999999pt height=35.77743345pt/></p>
 
 
-and multiply it by  $$\sqrt{n}$$, then:
+and multiply it by  <p align="center"><img src="/tex/80c7c204f22b8821ddd1a8ffffae8d7d.svg?invert_in_darkmode&sanitize=true" align=middle width=23.56554915pt height=16.438356pt/></p>, then:
 
 
-  $$\sqrt{n}Var(X) = n\frac{\sigma^2}{n}=\sigma^2$$
+  <p align="center"><img src="/tex/1a0aca0a1e6039d4edbdb0c71f997ec4.svg?invert_in_darkmode&sanitize=true" align=middle width=172.6038699pt height=35.77743345pt/></p>
 
 
 So lets create now below random variable with same underlying variable X and add it to previous graphs in orange:
 
 
-  $$Y_3= \sqrt{n}(\frac{x_1+x_2+...+x_{n}}{n}-\mu)$$
+  <p align="center"><img src="/tex/58246ad6f8b6693d8fa0ecc5ac9e5189.svg?invert_in_darkmode&sanitize=true" align=middle width=234.98176515pt height=31.985609699999994pt/></p>
 
 
 ```python
@@ -390,14 +390,13 @@ for i in range(10000):
 
 This is pretty much what CLT says, and formally this would be (from [Wikipedia](https://en.wikipedia.org/wiki/Central_limit_theorem)):
 
-**Suppose  $${X_1, X_2, …}$$  is a sequence of i.i.d. random variables with  $$E[X_i] = \mu$$  and  $$Var[X_i] = \sigma^2 < \infty$$ . Then as n approaches infinity, the random variables  $$\sqrt{n} (S_n − \mu)$$  converge in distribution to a normal   $$N(0,\sigma^2)$$ :**
+**Suppose  <p align="center"><img src="/tex/c020a045db9084306ef32e2e02e150a1.svg?invert_in_darkmode&sanitize=true" align=middle width=75.7762797pt height=14.42921205pt/></p>  is a sequence of i.i.d. random variables with  <p align="center"><img src="/tex/32e6f5bb232f78bee592692f731b17c6.svg?invert_in_darkmode&sanitize=true" align=middle width=73.12872765pt height=16.438356pt/></p>  and  <p align="center"><img src="/tex/6ac98b5208d35a708c2ab44e52de2d4c.svg?invert_in_darkmode&sanitize=true" align=middle width=135.6591423pt height=18.312383099999998pt/></p> . Then as n approaches infinity, the random variables  <p align="center"><img src="/tex/2ee263818f260fb2ae5071fe54661218.svg?invert_in_darkmode&sanitize=true" align=middle width=65.283768pt height=17.4097869pt/></p>  converge in distribution to a normal   <p align="center"><img src="/tex/f6fc7f9e09ee70aa8adeda1f6a75b132.svg?invert_in_darkmode&sanitize=true" align=middle width=60.6678369pt height=18.312383099999998pt/></p> :**
 
- $${\sqrt {n}}\left(S_{n}-\mu \right)\ {\xrightarrow {d}}\ N\left(0,\sigma ^{2}\right) $$ 
+ <p align="center"><img src="/tex/10532787bc81b78ec65cd8d626fe8658.svg?invert_in_darkmode&sanitize=true" align=middle width=184.82372205pt height=23.0628651pt/></p> 
 
 **Where:**
 
- $$
-S_{n}:={\frac {X_{1}+\cdots +X_{n}}{n}} $$ 
+ <p align="center"><img src="/tex/5c0b5b423dfe4f1e80d3f679f15abbb7.svg?invert_in_darkmode&sanitize=true" align=middle width=150.40453724999998pt height=33.62942055pt/></p> 
 
 Although this feels intuitieve to me I guess theory behind it is quite complex. I have seen this proved from [moment-generating functions](https://en.wikipedia.org/wiki/Moment-generating_function) and also these two answers from Stack Exchange give some more detail about this matter:
 
@@ -408,21 +407,21 @@ Although this feels intuitieve to me I guess theory behind it is quite complex. 
 
 First few lines from [Wikepedia](https://en.wikipedia.org/wiki/Random_walk):
 
-**A random walk is a mathematical object, known as a stochastic or random process, that describes a path that consists of a succession of random steps on some mathematical space such as the integers. An elementary example of a random walk is the random walk on the integer number line  $$\mathbb {Z}$$ , which starts at 0 and at each step moves +1 or −1 with equal probability.**
+**A random walk is a mathematical object, known as a stochastic or random process, that describes a path that consists of a succession of random steps on some mathematical space such as the integers. An elementary example of a random walk is the random walk on the integer number line  <p align="center"><img src="/tex/065644cecfd980ca1bddaf9553d9354a.svg?invert_in_darkmode&sanitize=true" align=middle width=10.9589403pt height=11.324195849999999pt/></p> , which starts at 0 and at each step moves +1 or −1 with equal probability.**
 
-Basically imagine the path someone would take if can do one step left or right with the same probability. To represent this we will create now a random variable X that can have values 1 and -1 with probability  $$\frac{1}{2}$$  each. Then:
+Basically imagine the path someone would take if can do one step left or right with the same probability. To represent this we will create now a random variable X that can have values 1 and -1 with probability  <p align="center"><img src="/tex/898e59888e4f3abf104d782e0f45fbae.svg?invert_in_darkmode&sanitize=true" align=middle width=8.21920935pt height=32.990165999999995pt/></p>  each. Then:
 
- $$ E[X]= \frac{1}{2}1+\frac{1}{2}(-1) = 0$$ 
+ <p align="center"><img src="/tex/9fd302c4f84314436096c54b98a27ca4.svg?invert_in_darkmode&sanitize=true" align=middle width=175.60703654999998pt height=32.990165999999995pt/></p> 
 
- $$ Var(X)= E[X^2]-E[X]^2=\frac{1}{2}1^2+\frac{1}{2}(-1)^2-0=1$$  
+ <p align="center"><img src="/tex/e0a73780773a703195ff1bfb3bf77f9d.svg?invert_in_darkmode&sanitize=true" align=middle width=370.04563035pt height=32.990165999999995pt/></p>  
 
 Applying the CLT to this variable we have:
 
- $${\sqrt {n}}\left(\frac {X_{1}+\cdots +X_{n}}{n}-0 \right)\ {\xrightarrow {}}\ N\left(0,1\right) $$ 
+ <p align="center"><img src="/tex/50114d682c668e6c61639e72e997762c.svg?invert_in_darkmode&sanitize=true" align=middle width=270.0886782pt height=39.452455349999994pt/></p> 
 
 And with some algebra:
 
- $$\frac{1}{\sqrt{n}}\left( X_{1}+\cdots +X_{n} \right)\ {\xrightarrow {}}\ N\left(0,1\right) $$ 
+ <p align="center"><img src="/tex/e56c7eb1c325c12d0508b1a2f0d8a1d7.svg?invert_in_darkmode&sanitize=true" align=middle width=228.39009435pt height=37.0017615pt/></p> 
 
 Lets plot the variable X.
 
@@ -494,13 +493,13 @@ plt.show()
 </figure>
 {:/} 
 
-So, if we add n events for random variable X and scale this to  $$\frac{1}{\sqrt{n}}$$  we will have something close to a normal distribution with mean 0 and variance 1.
+So, if we add n events for random variable X and scale this to  <p align="center"><img src="/tex/643ceabfc342d803d4f845b3c1125778.svg?invert_in_darkmode&sanitize=true" align=middle width=23.56554915pt height=37.0017615pt/></p>  we will have something close to a normal distribution with mean 0 and variance 1.
 
-Now, if we multiply our variable X by  $$\sqrt{n}$$  we end up with a  $$ N(0,n) $$  distributed variable, which is what a random walk is doing if we started at point 0.
+Now, if we multiply our variable X by  <p align="center"><img src="/tex/80c7c204f22b8821ddd1a8ffffae8d7d.svg?invert_in_darkmode&sanitize=true" align=middle width=23.56554915pt height=16.438356pt/></p>  we end up with a  <p align="center"><img src="/tex/a9341c956f8f25c8a0c793be99ad5ff3.svg?invert_in_darkmode&sanitize=true" align=middle width=53.1773715pt height=16.438356pt/></p>  distributed variable, which is what a random walk is doing if we started at point 0.
 
-Whith this we see that as we keep incrementing the number of steps we take, the variance increases linearly to the steps and so the standard deviation will be  $$\sqrt{n}$$  making a random walk to stay "close" to 0.
+Whith this we see that as we keep incrementing the number of steps we take, the variance increases linearly to the steps and so the standard deviation will be  <p align="center"><img src="/tex/80c7c204f22b8821ddd1a8ffffae8d7d.svg?invert_in_darkmode&sanitize=true" align=middle width=23.56554915pt height=16.438356pt/></p>  making a random walk to stay "close" to 0.
 
-Up to now we have plotted the distributions for the variables taking into account the values it would take in terms of n, but we can also plot the sumations as a sequence of steps drawing a path in terms of n. We will draw so 500 of this paths taking 10000 steps. Also to see graphically how the paths remain as a normal distribution in time we have plotted the standard deviation  $$\sqrt{n}$$  as red lines.
+Up to now we have plotted the distributions for the variables taking into account the values it would take in terms of n, but we can also plot the sumations as a sequence of steps drawing a path in terms of n. We will draw so 500 of this paths taking 10000 steps. Also to see graphically how the paths remain as a normal distribution in time we have plotted the standard deviation  <p align="center"><img src="/tex/80c7c204f22b8821ddd1a8ffffae8d7d.svg?invert_in_darkmode&sanitize=true" align=middle width=23.56554915pt height=16.438356pt/></p>  as red lines.
 
 ```python
 
@@ -543,7 +542,7 @@ plt.show()
 </figure>
 {:/} 
 
-And to have an idea on how close the paths remain to 0 we will also plot the functions  $$y=x$$  and  $$y=-x$$ . Theory says that although really improvable those are possible values and would be the equivalent to have taken 10000 steps left or 10000 steps right in one of the paths.
+And to have an idea on how close the paths remain to 0 we will also plot the functions  <p align="center"><img src="/tex/c414a92d55da1b3bafcbc5b2c9ebf50c.svg?invert_in_darkmode&sanitize=true" align=middle width=39.96182519999999pt height=10.2739725pt/></p>  and  <p align="center"><img src="/tex/60656230925e81fdbc83b2d1ebb092d4.svg?invert_in_darkmode&sanitize=true" align=middle width=52.747257749999996pt height=12.785402849999999pt/></p> . Theory says that although really improvable those are possible values and would be the equivalent to have taken 10000 steps left or 10000 steps right in one of the paths.
 
 ```python
 
