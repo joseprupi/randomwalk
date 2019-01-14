@@ -3,8 +3,6 @@
     <img src="/img/galton2.gif" width="100%">
 </figure>
 
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
 [Independent and identically distributed random variables](#independent-and-identically-distributed-random-variables)
 
 [Law of large numbers](#law-of-large-numbers)
@@ -28,13 +26,11 @@ The easiest example I can think about would be tossing a coin and accumulate the
 
 In a formal way we can write the Law of Large Numbers as:
 
-{% raw %}
-  $$\lim_{n\to\infty}Pr(|\overline{X_n}-\mu| \geq\epsilon) = 0 \text{  for any  }\epsilon$$
-{% endraw %}
+$$\lim_{n\to\infty}Pr(|\overline{X_n}-\mu| \geq\epsilon) = 0 \text{  for any  }\epsilon$$
 
 What the law is saying is that if we have a margin error {% raw %} $$\epsilon $${% endraw %} and we substract the mean from the average of some samples this error will be decreasing until it goes to 0 if we increase the number of samples.
 
-Lets try to interpret the above formula with an example. We will toss a fair coin n times and accumulate the result knowing in advance that {% raw %} $$\mu = 0.5$${% endraw %} as we have {% raw %} $$\frac{1}{2}$${% endraw %} of probabilities of being head and {% raw %} $$\frac{1}{2}$${% endraw %} of being tails (which is a Bernoulli distribution with {% raw %} $$p=\frac{1}{2}$${% endraw %}) and also taking {% raw %} $$\epsilon = 0.1$${% endraw %}.
+Lets try to interpret the above formula with an example. We will toss a fair coin n times and accumulate the result knowing in advance that $\mu = 0.5$ as we have $\frac{1}{2}$ of probabilities of being head and {% raw %} $$\frac{1}{2}$${% endraw %} of being tails (which is a Bernoulli distribution with {% raw %} $$p=\frac{1}{2}$${% endraw %}) and also taking {% raw %} $$\epsilon = 0.1$${% endraw %}.
 
 To demonstrate it we have to calculate below formula increasing n and see what the results are:
 
