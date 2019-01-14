@@ -1,7 +1,4 @@
----
-title: Some intution behind random walks
-desc: Some intution behind random walks
----
+Some intution behind random walks
 
 {::nomarkdown} 
 <figure>
