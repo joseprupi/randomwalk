@@ -28,9 +28,9 @@ In a formal way we can write the Law of Large Numbers as:
 
 $$\lim_{n\to\infty}Pr(|\overline{X_n}-\mu| \geq\epsilon) = 0 \text{  for any  }\epsilon$$
 
-What the law is saying is that if we have a margin error  $$\epsilon $$ and we substract the mean from the average of some samples this error will be decreasing until it goes to 0 if we increase the number of samples.
+What the law is saying is that if we have a margin error  $\epsilon $ and we substract the mean from the average of some samples this error will be decreasing until it goes to 0 if we increase the number of samples.
 
-Lets try to interpret the above formula with an example. We will toss a fair coin n times and accumulate the result knowing in advance that $\mu = 0.5$ as we have $\frac{1}{2}$ of probabilities of being head and  $$\frac{1}{2}$$ of being tails (which is a Bernoulli distribution with  $$p=\frac{1}{2}$$) and also taking  $$\epsilon = 0.1$$.
+Lets try to interpret the above formula with an example. We will toss a fair coin n times and accumulate the result knowing in advance that $\mu = 0.5$ as we have $\frac{1}{2}$ of probabilities of being head and  $\frac{1}{2}$ of being tails (which is a Bernoulli distribution with  $p=\frac{1}{2}$) and also taking  $\epsilon = 0.1$.
 
 To demonstrate it we have to calculate below formula increasing n and see what the results are:
 
@@ -40,10 +40,7 @@ To demonstrate it we have to calculate below formula increasing n and see what t
 
 And this is the equivalent to say that the probability of having the mean out of the range 0.4 to 0.6 decreases to 0 if we increment n, or that below probability goes to 0:
 
-
-  $$Pr(0.4 \geq \overline{X_n} \geq0.6)$$
-
-
+$$Pr(0.4 \geq \overline{X_n} \geq0.6)$$
 
 We will do this programatically executing the experiment with n=10, n=50, n=100, n=500 and n=1000 coins calculating the cumulative probability using the [cdf(x,m,p) function](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.binom.html) from scipy, where x is the number of positive trials, n the number of trials and p the probability for the binary distribution.
 
@@ -77,7 +74,7 @@ Lets take now a fair dice with same probability of returning 1, 2, 3, 4, 5 or 6 
 
 
 The dice will produce a random variable with 6 equiprobable events, and being a random variable means it is a probability distribution (more precisely it is a [discrete uniform distribution ](https://en.wikipedia.org/wiki/Discrete_uniform_distribution), and actually the previous mean could have been calculated as 
-  $$\frac{1+6}{2} = 3.5$$
+  $\frac{1+6}{2} = 3.5$
  as is shown in the wikipedia article).
 
 As a distribution we can plot a set of samples as an histogram to see the shape of the results, so lets do it with 10000 dice throws:
@@ -209,8 +206,8 @@ We can now proof matematically these results. We will first generalize our distr
   $$X= \frac{1}{n}\sum_{i=1}^n{x_i}$$
 
 
-Where each  $$x_i$$  has a mean of 
-  $$\mu$$
+Where each  $x_i$  has a mean of 
+  $\mu$
 . To calculate the expected value of the new distribution we can do:
 
 
