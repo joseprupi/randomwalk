@@ -28,21 +28,21 @@ In a formal way we can write the Law of Large Numbers as:
 
 $$\lim_{n\to\infty}Pr(|\overline{X_n}-\mu| \geq\epsilon) = 0 \text{  for any  }\epsilon$$
 
-What the law is saying is that if we have a margin error {% raw %} $$\epsilon $${% endraw %} and we substract the mean from the average of some samples this error will be decreasing until it goes to 0 if we increase the number of samples.
+What the law is saying is that if we have a margin error  $$\epsilon $$ and we substract the mean from the average of some samples this error will be decreasing until it goes to 0 if we increase the number of samples.
 
-Lets try to interpret the above formula with an example. We will toss a fair coin n times and accumulate the result knowing in advance that $\mu = 0.5$ as we have $\frac{1}{2}$ of probabilities of being head and {% raw %} $$\frac{1}{2}$${% endraw %} of being tails (which is a Bernoulli distribution with {% raw %} $$p=\frac{1}{2}$${% endraw %}) and also taking {% raw %} $$\epsilon = 0.1$${% endraw %}.
+Lets try to interpret the above formula with an example. We will toss a fair coin n times and accumulate the result knowing in advance that $\mu = 0.5$ as we have $\frac{1}{2}$ of probabilities of being head and  $$\frac{1}{2}$$ of being tails (which is a Bernoulli distribution with  $$p=\frac{1}{2}$$) and also taking  $$\epsilon = 0.1$$.
 
 To demonstrate it we have to calculate below formula increasing n and see what the results are:
 
-{% raw %}
+
   $$\lim_{n\to\infty}Pr(|\overline{X_n}-0.5| \geq0.1) = 0$$
-{% endraw %}
+
 
 And this is the equivalent to say that the probability of having the mean out of the range 0.4 to 0.6 decreases to 0 if we increment n, or that below probability goes to 0:
 
-{% raw %}
+
   $$Pr(0.4 \geq \overline{X_n} \geq0.6)$$
-{% endraw %}
+
 
 
 We will do this programatically executing the experiment with n=10, n=50, n=100, n=500 and n=1000 coins calculating the cumulative probability using the [cdf(x,m,p) function](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.binom.html) from scipy, where x is the number of positive trials, n the number of trials and p the probability for the binary distribution.
@@ -72,13 +72,13 @@ And we see the result goes to 0 as n grows:
 
 Lets take now a fair dice with same probability of returning 1, 2, 3, 4, 5 or 6 and expected value of 3.5 from:
 
-{% raw %}
-  $$\frac{1+2+3+4+5+6}{6} = 3.5$$
-{% endraw %}
 
-The dice will produce a random variable with 6 equiprobable events, and being a random variable means it is a probability distribution (more precisely it is a [discrete uniform distribution ](https://en.wikipedia.org/wiki/Discrete_uniform_distribution), and actually the previous mean could have been calculated as {% raw %}
+  $$\frac{1+2+3+4+5+6}{6} = 3.5$$
+
+
+The dice will produce a random variable with 6 equiprobable events, and being a random variable means it is a probability distribution (more precisely it is a [discrete uniform distribution ](https://en.wikipedia.org/wiki/Discrete_uniform_distribution), and actually the previous mean could have been calculated as 
   $$\frac{1+6}{2} = 3.5$$
-{% endraw %} as is shown in the wikipedia article).
+ as is shown in the wikipedia article).
 
 As a distribution we can plot a set of samples as an histogram to see the shape of the results, so lets do it with 10000 dice throws:
 
@@ -103,9 +103,9 @@ No surprises here, we closely had the six values of the dice with the same proba
 
 Now we will create another probability distribution with a new random variable. The random variable we will use now is the mean of the result of throwing the dice three times. So it will be defined as:
 
-{% raw %}
+
   $$X= \frac{x_1+x_2+x_3}{3}$$
-{% endraw %}
+
 
 The outcome of the random variable is created at the same time with three other random values which are three events with 6 equiprobable results. Why not?
 
@@ -141,15 +141,15 @@ As intuition would say the graph grows as you get closer to 3.5, the expected va
 
 Lets now create another two random variables, this time we will calculate the mean for 40 and 1000 dice throws respectively.
 
-{% raw %}
+
   $$X= \frac{x_1+x_2+...+x_{40}}{40}$$
-{% endraw %}
+
 
 and:
 
-{% raw %}
+
   $$X= \frac{x_1+x_2+...+x_{1000}}{1000}$$
-{% endraw %}
+
 
  If we plot the results:
 
@@ -205,31 +205,31 @@ With this we have seen that from an underlying uniform distribution we can creat
 
 We can now proof matematically these results. We will first generalize our distribution as:
 
-{% raw %}
+
   $$X= \frac{1}{n}\sum_{i=1}^n{x_i}$$
-{% endraw %}
 
-Where each {% raw %} $$x_i$$ {% endraw %} has a mean of {% raw %}
+
+Where each  $$x_i$$  has a mean of 
   $$\mu$$
-{% endraw %}. To calculate the expected value of the new distribution we can do:
+. To calculate the expected value of the new distribution we can do:
 
-{% raw %}
+
   $$\mathbb{E}[X]= \mathbb{E}\Bigg[ \frac{1}{n}\sum_{i=1}^n{x_i} \Bigg] = \frac{1}{n} \sum_{i=1}^n{\mathbb{E}x_i}= \frac{1}{n} \sum_{i=1}^n{\mu}=\mu $$
-{% endraw %}
 
-and we see that {% raw %} $$\mu$$ {% endraw %} does not depend on {% raw %} $$n$$ {% endraw %}, so it does not matter how large n grows that mean will remain invariant.
+
+and we see that  $$\mu$$  does not depend on  $$n$$ , so it does not matter how large n grows that mean will remain invariant.
 
 To get the variance:
 
-{% raw %}
+
   $$Var(X)=Var\Bigg(\frac{1}{n}\sum_{i=1}^n{x_i}\Bigg)=\frac{1}{n^2}Var\Bigg(\sum_{i=1}^n{x_i}\Bigg) $$
-{% endraw %}
 
-And as all {% raw %} $$x_i$$ {% endraw %} are independent with {% raw %} $$\sigma^2$$ {% endraw %} variance we have that:
 
-{% raw %}
+And as all  $$x_i$$  are independent with  $$\sigma^2$$  variance we have that:
+
+
   $$Var(X)=\frac{1}{n^2}\sum_{i=1}^n{\sigma^2}=\frac{1}{n^2}n\sigma^2=\frac{\sigma^2}{n} $$
-{% endraw %}
+
 
 For the variance case we see it goes to 0 when n goes to inifinity, which explains the results from the previous examples.
 
@@ -237,18 +237,18 @@ For the variance case we see it goes to 0 when n goes to inifinity, which explai
 
 We have seen the distribution for a random variable like the one shown below will be another random variable with the same mean than the underlying one and decreasing variance as n increases:
 
-{% raw %}
+
   $$Y_1= \frac{x_1+x_2+...+x_{n}}{n}$$
-{% endraw %}
 
-What we can do now is substract {% raw %} $$\mu$$ {% endraw %} to this variable and see how this average is deviated from the expected value (law of large numbers). As this is the "error" of the average compared to the expected value of the underlying variable this will be some distribution centered to 0:
 
-{% raw %}
+What we can do now is substract  $$\mu$$  to this variable and see how this average is deviated from the expected value (law of large numbers). As this is the "error" of the average compared to the expected value of the underlying variable this will be some distribution centered to 0:
+
+
   $$Y_2= \frac{x_1+x_2+...+x_{n}}{n}-\mu$$
-{% endraw %}
 
-The underlying a variable we will use now is normally distributed {% raw %}   $$X \sim N(\mu,\,\sigma^{2})$$
-{% endraw %} with {% raw %} $$\mu=20$$ {% endraw %} and {% raw %} $$\sigma^2=10$$ {% endraw %}, this variable would be the equivalent to the dice we used in the previous section.
+
+The underlying a variable we will use now is normally distributed    $$X \sim N(\mu,\,\sigma^{2})$$
+ with  $$\mu=20$$  and  $$\sigma^2=10$$ , this variable would be the equivalent to the dice we used in the previous section.
 
 [Entire code for graphs](https://github.com/joseprupi/stochastics/blob/master/centralLimitTheoremAverage.py)
 
@@ -298,41 +298,41 @@ for i in range(10000):
 {:/}
 
 
-Red histograms show the normal distributed variable and blue ones show the result for {% raw %} $$Y_1$$ {% endraw %} which is the average of the random variable, we see the mean is the same than the normal one and the variance decreases as n increases (same behaviour as the dice example).
+Red histograms show the normal distributed variable and blue ones show the result for  $$Y_1$$  which is the average of the random variable, we see the mean is the same than the normal one and the variance decreases as n increases (same behaviour as the dice example).
 
-Green histograms show {% raw %} $$Y_2$$ {% endraw %} variable which again has the shape of a normal distribution. As it is the deviaton from the expected value it is centered at 0 and also gets narrower as we increase n. This makes sense to me as we have seen from the law of lage numbers that the variance keeps decreasing as we increase the number of trials for the average so the error will also decrease.
+Green histograms show  $$Y_2$$  variable which again has the shape of a normal distribution. As it is the deviaton from the expected value it is centered at 0 and also gets narrower as we increase n. This makes sense to me as we have seen from the law of lage numbers that the variance keeps decreasing as we increase the number of trials for the average so the error will also decrease.
 
-Next step would be try to scale this new variable to something that preserves the variance of the underlying random variable, and it turns out that scaling it to {% raw %} $$\sqrt{n}$$ {% endraw %} does the trick. 
+Next step would be try to scale this new variable to something that preserves the variance of the underlying random variable, and it turns out that scaling it to  $$\sqrt{n}$$  does the trick. 
 
 Actually we know that, if:
 
-{% raw %}
+
   $$Y= kX, \quad\text{where}\quad X \sim N(\mu,\,\sigma^{2}) $$
-{% endraw %}
+
 
 then:
 
-{% raw %}
+
   $$Y \sim N(k\mu,\,k^2\sigma^{2}) $$
-{% endraw %}
+
 
 So, if we had:
 
-{% raw %}
+
   $$Var(X)=\frac{\sigma^2}{n} $$
-{% endraw %}
 
-and multiply it by {% raw %} $$\sqrt{n}$${% endraw %}, then:
 
-{% raw %}
+and multiply it by  $$\sqrt{n}$$, then:
+
+
   $$\sqrt{n}Var(X) = n\frac{\sigma^2}{n}=\sigma^2$$
-{% endraw %}
+
 
 So lets create now below random variable with same underlying variable X and add it to previous graphs in orange:
 
-{% raw %}
+
   $$Y_3= \sqrt{n}(\frac{x_1+x_2+...+x_{n}}{n}-\mu)$$
-{% endraw %}
+
 
 ```python
 
@@ -393,14 +393,14 @@ for i in range(10000):
 
 This is pretty much what CLT says, and formally this would be (from [Wikipedia](https://en.wikipedia.org/wiki/Central_limit_theorem)):
 
-**Suppose {% raw %} $${X_1, X_2, …}$$ {% endraw %} is a sequence of i.i.d. random variables with {% raw %} $$E[X_i] = \mu$$ {% endraw %} and {% raw %} $$Var[X_i] = \sigma^2 < \infty$$ {% endraw %}. Then as n approaches infinity, the random variables {% raw %} $$\sqrt{n} (S_n − \mu)$$ {% endraw %} converge in distribution to a normal  {% raw %} $$N(0,\sigma^2)$$ {% endraw %}:**
+**Suppose  $${X_1, X_2, …}$$  is a sequence of i.i.d. random variables with  $$E[X_i] = \mu$$  and  $$Var[X_i] = \sigma^2 < \infty$$ . Then as n approaches infinity, the random variables  $$\sqrt{n} (S_n − \mu)$$  converge in distribution to a normal   $$N(0,\sigma^2)$$ :**
 
-{% raw %} $${\sqrt {n}}\left(S_{n}-\mu \right)\ {\xrightarrow {d}}\ N\left(0,\sigma ^{2}\right) $$ {% endraw %}
+ $${\sqrt {n}}\left(S_{n}-\mu \right)\ {\xrightarrow {d}}\ N\left(0,\sigma ^{2}\right) $$ 
 
 **Where:**
 
-{% raw %} $$
-S_{n}:={\frac {X_{1}+\cdots +X_{n}}{n}} $$ {% endraw %}
+ $$
+S_{n}:={\frac {X_{1}+\cdots +X_{n}}{n}} $$ 
 
 Although this feels intuitieve to me I guess theory behind it is quite complex. I have seen this proved from [moment-generating functions](https://en.wikipedia.org/wiki/Moment-generating_function) and also these two answers from Stack Exchange give some more detail about this matter:
 
@@ -411,21 +411,21 @@ Although this feels intuitieve to me I guess theory behind it is quite complex. 
 
 First few lines from [Wikepedia](https://en.wikipedia.org/wiki/Random_walk):
 
-**A random walk is a mathematical object, known as a stochastic or random process, that describes a path that consists of a succession of random steps on some mathematical space such as the integers. An elementary example of a random walk is the random walk on the integer number line {% raw %} $$\mathbb {Z}$${% endraw %} , which starts at 0 and at each step moves +1 or −1 with equal probability.**
+**A random walk is a mathematical object, known as a stochastic or random process, that describes a path that consists of a succession of random steps on some mathematical space such as the integers. An elementary example of a random walk is the random walk on the integer number line  $$\mathbb {Z}$$ , which starts at 0 and at each step moves +1 or −1 with equal probability.**
 
-Basically imagine the path someone would take if can do one step left or right with the same probability. To represent this we will create now a random variable X that can have values 1 and -1 with probability {% raw %} $$\frac{1}{2}$$ {% endraw %} each. Then:
+Basically imagine the path someone would take if can do one step left or right with the same probability. To represent this we will create now a random variable X that can have values 1 and -1 with probability  $$\frac{1}{2}$$  each. Then:
 
-{% raw %} $$ E[X]= \frac{1}{2}1+\frac{1}{2}(-1) = 0$$ {% endraw %}
+ $$ E[X]= \frac{1}{2}1+\frac{1}{2}(-1) = 0$$ 
 
-{% raw %} $$ Var(X)= E[X^2]-E[X]^2=\frac{1}{2}1^2+\frac{1}{2}(-1)^2-0=1$$ {% endraw %} 
+ $$ Var(X)= E[X^2]-E[X]^2=\frac{1}{2}1^2+\frac{1}{2}(-1)^2-0=1$$  
 
 Applying the CLT to this variable we have:
 
-{% raw %} $${\sqrt {n}}\left(\frac {X_{1}+\cdots +X_{n}}{n}-0 \right)\ {\xrightarrow {}}\ N\left(0,1\right) $$ {% endraw %}
+ $${\sqrt {n}}\left(\frac {X_{1}+\cdots +X_{n}}{n}-0 \right)\ {\xrightarrow {}}\ N\left(0,1\right) $$ 
 
 And with some algebra:
 
-{% raw %} $$\frac{1}{\sqrt{n}}\left( X_{1}+\cdots +X_{n} \right)\ {\xrightarrow {}}\ N\left(0,1\right) $$ {% endraw %}
+ $$\frac{1}{\sqrt{n}}\left( X_{1}+\cdots +X_{n} \right)\ {\xrightarrow {}}\ N\left(0,1\right) $$ 
 
 Lets plot the variable X.
 
@@ -497,13 +497,13 @@ plt.show()
 </figure>
 {:/} 
 
-So, if we add n events for random variable X and scale this to {% raw %} $$\frac{1}{\sqrt{n}}$$ {% endraw %} we will have something close to a normal distribution with mean 0 and variance 1.
+So, if we add n events for random variable X and scale this to  $$\frac{1}{\sqrt{n}}$$  we will have something close to a normal distribution with mean 0 and variance 1.
 
-Now, if we multiply our variable X by {% raw %} $$\sqrt{n}$$ {% endraw %} we end up with a {% raw %} $$ N(0,n) $$ {% endraw %} distributed variable, which is what a random walk is doing if we started at point 0.
+Now, if we multiply our variable X by  $$\sqrt{n}$$  we end up with a  $$ N(0,n) $$  distributed variable, which is what a random walk is doing if we started at point 0.
 
-Whith this we see that as we keep incrementing the number of steps we take, the variance increases linearly to the steps and so the standard deviation will be {% raw %} $$\sqrt{n}$$ {% endraw %} making a random walk to stay "close" to 0.
+Whith this we see that as we keep incrementing the number of steps we take, the variance increases linearly to the steps and so the standard deviation will be  $$\sqrt{n}$$  making a random walk to stay "close" to 0.
 
-Up to now we have plotted the distributions for the variables taking into account the values it would take in terms of n, but we can also plot the sumations as a sequence of steps drawing a path in terms of n. We will draw so 500 of this paths taking 10000 steps. Also to see graphically how the paths remain as a normal distribution in time we have plotted the standard deviation {% raw %} $$\sqrt{n}$$ {% endraw %} as red lines.
+Up to now we have plotted the distributions for the variables taking into account the values it would take in terms of n, but we can also plot the sumations as a sequence of steps drawing a path in terms of n. We will draw so 500 of this paths taking 10000 steps. Also to see graphically how the paths remain as a normal distribution in time we have plotted the standard deviation  $$\sqrt{n}$$  as red lines.
 
 ```python
 
@@ -546,7 +546,7 @@ plt.show()
 </figure>
 {:/} 
 
-And to have an idea on how close the paths remain to 0 we will also plot the functions {% raw %} $$y=x$$ {% endraw %} and {% raw %} $$y=-x$$ {% endraw %}. Theory says that although really improvable those are possible values and would be the equivalent to have taken 10000 steps left or 10000 steps right in one of the paths.
+And to have an idea on how close the paths remain to 0 we will also plot the functions  $$y=x$$  and  $$y=-x$$ . Theory says that although really improvable those are possible values and would be the equivalent to have taken 10000 steps left or 10000 steps right in one of the paths.
 
 ```python
 
