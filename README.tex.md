@@ -90,11 +90,11 @@ plt.hist(rolls, bins=6)
 plt.show()
 ```
 
-{::nomarkdown} 
+ 
 <figure>
     <img src="/img/dice.png" >
 </figure>
-{:/}
+
 
 No surprises here, we closely had the six values of the dice with the same probability.
 
@@ -124,11 +124,11 @@ plt.hist(rolls, bins=30)
 plt.show()
 ```
 
-{::nomarkdown} 
+ 
 <figure>
     <img src="/img/dice2.png" >
 </figure>
-{:/}
+
 
 Things change here as we see now these results have the shape of a normal distribution with mean 3.5, which makes sense. 
 
@@ -166,11 +166,11 @@ plt.hist(rolls, bins=30)
 plt.show()
 ```
 
-{::nomarkdown} 
+ 
 <figure>
     <img src="/img/dice3.png" >
 </figure>
-{:/}
+
 
 ```python
 import matplotlib.pyplot as plt
@@ -188,11 +188,11 @@ plt.hist(rolls, bins=30)
 plt.show()
 ```
 
-{::nomarkdown} 
+ 
 <figure>
     <img src="/img/dice4.png" >
 </figure>
-{:/}
+
 
 Again the outcomes shape looks like a normal distribution with mean 3.5. But something else can be seen from these two graphs, and that is the variance for the new distributions we have created seems to become smaller as we increase the number of dice throws. 
 
@@ -284,11 +284,11 @@ for i in range(10000):
 
 ```
 
-{::nomarkdown} 
+ 
 <figure>
     <img src="/img/mean.png" >
 </figure>
-{:/}
+
 
 
 Red histograms show the normal distributed variable and blue ones show the result for  $Y_1$  which is the average of the random variable, we see the mean is the same than the normal one and the variance decreases as n increases (same behaviour as the dice example).
@@ -378,11 +378,11 @@ for i in range(10000):
 
 ```
 
-{::nomarkdown} 
+ 
 <figure>
     <img src="/img/clt2.png" >
 </figure>
-{:/}
+
 
 This is pretty much what CLT says, and formally this would be (from [Wikipedia](https://en.wikipedia.org/wiki/Central_limit_theorem)):
 
@@ -484,11 +484,11 @@ plt.show()
 
 ```
 
-{::nomarkdown} 
+ 
 <figure>
     <img src="/img/randomWalk1.png" >
 </figure>
-{:/} 
+ 
 
 So, if we add n events for random variable X and scale this to  $\frac{1}{\sqrt{n}}$  we will have something close to a normal distribution with mean 0 and variance 1.
 
@@ -533,11 +533,11 @@ plt.show()
 
 ```
 
-{::nomarkdown} 
+ 
 <figure>
     <img src="/img/randomWalk2.png" >
 </figure>
-{:/} 
+ 
 
 And to have an idea on how close the paths remain to 0 we will also plot the functions  $y=x$  and  $y=-x$ . Theory says that although really improvable those are possible values and would be the equivalent to have taken 10000 steps left or 10000 steps right in one of the paths.
 
@@ -580,8 +580,7 @@ plt.show()
 
 ```
 
-{::nomarkdown} 
+ 
 <figure>
     <img src="/img/randomWalk3.png" >
 </figure>
-{:/} 
