@@ -5,7 +5,7 @@ desc: Some intution behind random walks
 
 {::nomarkdown} 
 <figure>
-    <img src="{{ site.baseurl }}/assets/img/galton2.gif" width="100%">
+    <img src="/img/galton2.gif" width="100%">
 </figure>
 {:/} 
 
