@@ -16,7 +16,7 @@
 #### Independent and identically distributed random variables ####
 
 [Independent and identically distributed random variables (i.i.d.) ](https://en.wikipedia.org/wiki/Independent_and_identically_distributed_random_variables) are a set of random variables that have same distribution and are independent. Some exmaples of i.i.d. are tossing a coin or rolling a dice
-n times, each event is mutually independent from the other ones so the result when tossing the coin is not affected by any other event having all of them have same distribution.
+n times, each event is mutually independent from the other ones so the result when tossing the coin is not affected by any other event having all of them same distribution.
 
 #### Law of large numbers ####
 
@@ -290,6 +290,7 @@ So lets create now below random variable with same underlying variable X and add
 
 <p align="center"><img src="/tex/58246ad6f8b6693d8fa0ecc5ac9e5189.svg?invert_in_darkmode&sanitize=true" align=middle width=234.98176515pt height=31.985609699999994pt/></p>
 
+[centralLimitTheoremAverage2.py](https://github.com/joseprupi/randomwalk/blob/master/python/centralLimitTheoremAverage2.py)
 
 ```python
 
@@ -347,16 +348,15 @@ for i in range(10000):
     <img src="/img/clt2.png" >
 </figure>
 
-
 This is pretty much what CLT says, and formally this would be (from [Wikipedia](https://en.wikipedia.org/wiki/Central_limit_theorem)):
 
-**Suppose  <img src="/tex/14419e54878b9a587006ec3409c5041f.svg?invert_in_darkmode&sanitize=true" align=middle width=75.77627969999999pt height=22.465723500000017pt/>  is a sequence of i.i.d. random variables with  <img src="/tex/71a0cef4f43982458101f1d1363f4125.svg?invert_in_darkmode&sanitize=true" align=middle width=73.12872764999999pt height=24.65753399999998pt/>  and  <img src="/tex/5963c84b2e359f0f9749ab0b4dee0f1b.svg?invert_in_darkmode&sanitize=true" align=middle width=135.65914229999998pt height=26.76175259999998pt/> . Then as n approaches infinity, the random variables  <img src="/tex/2845d0d99c5d786c4cc5e04526f04e48.svg?invert_in_darkmode&sanitize=true" align=middle width=65.28376799999998pt height=24.995338500000003pt/>  converge in distribution to a normal   <img src="/tex/435bdc3e25a7aa063907d13ea746c0b2.svg?invert_in_darkmode&sanitize=true" align=middle width=60.66783689999998pt height=26.76175259999998pt/> :**
+**Suppose  <img src="/tex/14419e54878b9a587006ec3409c5041f.svg?invert_in_darkmode&sanitize=true" align=middle width=75.77627969999999pt height=22.465723500000017pt/>  is a sequence of i.i.d. random variables with  <img src="/tex/71a0cef4f43982458101f1d1363f4125.svg?invert_in_darkmode&sanitize=true" align=middle width=73.12872764999999pt height=24.65753399999998pt/>  and  <img src="/tex/5963c84b2e359f0f9749ab0b4dee0f1b.svg?invert_in_darkmode&sanitize=true" align=middle width=135.65914229999998pt height=26.76175259999998pt/> . Then as n approaches infinity, the random variables  <img src="/tex/2845d0d99c5d786c4cc5e04526f04e48.svg?invert_in_darkmode&sanitize=true" align=middle width=65.28376799999998pt height=24.995338500000003pt/>  converge in distribution to a normal <img src="/tex/435bdc3e25a7aa063907d13ea746c0b2.svg?invert_in_darkmode&sanitize=true" align=middle width=60.66783689999998pt height=26.76175259999998pt/> :**
 
- <p align="center"><img src="/tex/10532787bc81b78ec65cd8d626fe8658.svg?invert_in_darkmode&sanitize=true" align=middle width=184.82372205pt height=23.0628651pt/></p> 
+<p align="center"><img src="/tex/10532787bc81b78ec65cd8d626fe8658.svg?invert_in_darkmode&sanitize=true" align=middle width=184.82372205pt height=23.0628651pt/></p> 
 
 **Where:**
 
- <p align="center"><img src="/tex/5c0b5b423dfe4f1e80d3f679f15abbb7.svg?invert_in_darkmode&sanitize=true" align=middle width=150.40453724999998pt height=33.62942055pt/></p> 
+<p align="center"><img src="/tex/c8bffaef319e2a87df9f53958d56a869.svg?invert_in_darkmode&sanitize=true" align=middle width=150.40453724999998pt height=33.62942055pt/></p> 
 
 Although this feels intuitieve to me I guess theory behind it is quite complex. I have seen this proved from [moment-generating functions](https://en.wikipedia.org/wiki/Moment-generating_function) and also these two answers from Stack Exchange give some more detail about this matter:
 
@@ -371,19 +371,21 @@ First few lines from [Wikepedia](https://en.wikipedia.org/wiki/Random_walk):
 
 Basically imagine the path someone would take if can do one step left or right with the same probability. To represent this we will create now a random variable X that can have values 1 and -1 with probability  <img src="/tex/47d54de4e337a06266c0e1d22c9b417b.svg?invert_in_darkmode&sanitize=true" align=middle width=6.552545999999997pt height=27.77565449999998pt/>  each. Then:
 
- <p align="center"><img src="/tex/9fd302c4f84314436096c54b98a27ca4.svg?invert_in_darkmode&sanitize=true" align=middle width=175.60703654999998pt height=32.990165999999995pt/></p> 
+<p align="center"><img src="/tex/9fd302c4f84314436096c54b98a27ca4.svg?invert_in_darkmode&sanitize=true" align=middle width=175.60703654999998pt height=32.990165999999995pt/></p> 
 
- <p align="center"><img src="/tex/e0a73780773a703195ff1bfb3bf77f9d.svg?invert_in_darkmode&sanitize=true" align=middle width=370.04563035pt height=32.990165999999995pt/></p>  
+<p align="center"><img src="/tex/e0a73780773a703195ff1bfb3bf77f9d.svg?invert_in_darkmode&sanitize=true" align=middle width=370.04563035pt height=32.990165999999995pt/></p>  
 
 Applying the CLT to this variable we have:
 
- <p align="center"><img src="/tex/50114d682c668e6c61639e72e997762c.svg?invert_in_darkmode&sanitize=true" align=middle width=270.0886782pt height=39.452455349999994pt/></p> 
+<p align="center"><img src="/tex/50114d682c668e6c61639e72e997762c.svg?invert_in_darkmode&sanitize=true" align=middle width=270.0886782pt height=39.452455349999994pt/></p> 
 
 And with some algebra:
 
- <p align="center"><img src="/tex/e56c7eb1c325c12d0508b1a2f0d8a1d7.svg?invert_in_darkmode&sanitize=true" align=middle width=228.39009435pt height=37.0017615pt/></p> 
+<p align="center"><img src="/tex/e56c7eb1c325c12d0508b1a2f0d8a1d7.svg?invert_in_darkmode&sanitize=true" align=middle width=228.39009435pt height=37.0017615pt/></p> 
 
 Lets plot the variable X.
+
+[randomWalk1.py](https://github.com/joseprupi/randomwalk/blob/master/python/randomWalk1.py)
 
 ```python
 
@@ -446,12 +448,10 @@ plt.hist(results,bins = 40)
 plt.show()
 
 ```
-
  
 <figure>
     <img src="/img/randomWalk1.png" >
 </figure>
- 
 
 So, if we add n events for random variable X and scale this to  <img src="/tex/c01b1eac508a29b79f1a8104cb902d85.svg?invert_in_darkmode&sanitize=true" align=middle width=18.925156799999996pt height=27.77565449999998pt/>  we will have something close to a normal distribution with mean 0 and variance 1.
 
@@ -460,6 +460,8 @@ Now, if we multiply our variable X by  <img src="/tex/4fd78aba72015f7697ab298a89
 Whith this we see that as we keep incrementing the number of steps we take, the variance increases linearly to the steps and so the standard deviation will be  <img src="/tex/4fd78aba72015f7697ab298a89ec8a9c.svg?invert_in_darkmode&sanitize=true" align=middle width=23.565549149999992pt height=24.995338500000003pt/>  making a random walk to stay "close" to 0.
 
 Up to now we have plotted the distributions for the variables taking into account the values it would take in terms of n, but we can also plot the sumations as a sequence of steps drawing a path in terms of n. We will draw so 500 of this paths taking 10000 steps. Also to see graphically how the paths remain as a normal distribution in time we have plotted the standard deviation  <img src="/tex/4fd78aba72015f7697ab298a89ec8a9c.svg?invert_in_darkmode&sanitize=true" align=middle width=23.565549149999992pt height=24.995338500000003pt/>  as red lines.
+
+[randomWalk2.py](https://github.com/joseprupi/randomwalk/blob/master/python/randomWalk2.py)
 
 ```python
 
@@ -496,13 +498,13 @@ plt.show()
 
 ```
 
- 
 <figure>
     <img src="/img/randomWalk2.png" >
-</figure>
- 
+</figure> 
 
 And to have an idea on how close the paths remain to 0 we will also plot the functions  <img src="/tex/b48140ea862958104c1c59de5605bc9b.svg?invert_in_darkmode&sanitize=true" align=middle width=39.96182519999999pt height=14.15524440000002pt/>  and  <img src="/tex/0a4e92192c06d8635b0c701153b71e2e.svg?invert_in_darkmode&sanitize=true" align=middle width=52.74725774999999pt height=19.1781018pt/> . Theory says that although really improvable those are possible values and would be the equivalent to have taken 10000 steps left or 10000 steps right in one of the paths.
+
+[randomWalk3.py](https://github.com/joseprupi/randomwalk/blob/master/python/randomWalk3.py)
 
 ```python
 
@@ -543,7 +545,6 @@ plt.show()
 
 ```
 
- 
 <figure>
     <img src="/img/randomWalk3.png" >
 </figure>
