@@ -15,12 +15,12 @@
 
 #### Independent and identically distributed random variables ####
 
-First of all [independent and identically distributed random variables (i.i.d.) ](https://en.wikipedia.org/wiki/Independent_and_identically_distributed_random_variables) which basically are a set of random variables that have same distribution and are independent, as the name states :). Some exmaples of i.i.d. are tossing a coin or rolling a dice
+[Independent and identically distributed random variables (i.i.d.) ](https://en.wikipedia.org/wiki/Independent_and_identically_distributed_random_variables) are a set of random variables that have same distribution and are independent. Some exmaples of i.i.d. are tossing a coin or rolling a dice
 n times, each event is mutually independent from the other ones so the result when tossing the coin is not affected by any other event having all of them have same distribution.
 
 #### Law of large numbers ####
 
-From a high level prospective [this law](https://en.wikipedia.org/wiki/Law_of_large_numbers) is quite intuitive, and basically says when having a sequence of i.i.d. the average of all results will converge to the mean of the distribution of the variables.
+From a high level prospective [this law](https://en.wikipedia.org/wiki/Law_of_large_numbers) is quite intuitive, and it says that when having a sequence of i.i.d. the average of all results will converge to the mean of the distribution of the variables.
 
 The easiest example I can think about would be tossing a coin and accumulate the result of doing it, if it lands with head upwards we sum 1 to our result otherwise we add 0 and calculate the average. It easy to see that as we keep repeating the experiment the result will get closer to 0.5.
 
@@ -28,15 +28,13 @@ In a formal way we can write the Law of Large Numbers as:
 
 $$\lim_{n\to\infty}Pr(|\overline{X_n}-\mu| \geq\epsilon) = 0 \text{  for any  }\epsilon$$
 
-What the law is saying is that if we have a margin error  $\epsilon $ and we substract the mean from the average of some samples this error will be decreasing until it goes to 0 if we increase the number of samples.
+What the law is saying is that if we have a margin error  $\epsilon $ and we substract the mean from the average of some samples this error will be decreasing until it goes to 0 while we increase the number of samples.
 
 Lets try to interpret the above formula with an example. We will toss a fair coin n times and accumulate the result knowing in advance that $\mu = 0.5$ as we have $\frac{1}{2}$ of probabilities of being head and  $\frac{1}{2}$ of being tails (which is a Bernoulli distribution with  $p=\frac{1}{2}$) and also taking  $\epsilon = 0.1$.
 
 To demonstrate it we have to calculate below formula increasing n and see what the results are:
 
-
-  $$\lim_{n\to\infty}Pr(|\overline{X_n}-0.5| \geq0.1) = 0$$
-
+$$\lim_{n\to\infty}Pr(|\overline{X_n}-0.5| \geq0.1) = 0$$
 
 And this is the equivalent to say that the probability of having the mean out of the range 0.4 to 0.6 decreases to 0 if we increment n, or that below probability goes to 0:
 
@@ -45,6 +43,8 @@ $$Pr(0.4 \geq \overline{X_n} \geq0.6)$$
 We will do this programatically executing the experiment with n=10, n=50, n=100, n=500 and n=1000 coins calculating the cumulative probability using the [cdf(x,m,p) function](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.binom.html) from scipy, where x is the number of positive trials, n the number of trials and p the probability for the binary distribution.
 
 For example with 10 trials we need to add **cdf(4,10,0.5)** for the mean being 4 or less and **1 - cdf(6,10,0.5)** for the probability of being 6 or more (one minus the probability of being the average 6 or less).
+
+[coinToss.py](https://github.com/joseprupi/randomwalk/blob/master/python/coinToss.py)
 
 ```python
 from scipy.stats import binom
