@@ -8,7 +8,7 @@ Some intution behind random walks
 
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
-<p style="margin-bottom: 0px">[Independent and identically distributed random variables](#independent-and-identically-distributed-random-variables)</p>
+[Independent and identically distributed random variables](#independent-and-identically-distributed-random-variables)
 <p style="margin-bottom: 0px">[Law of large numbers](#law-of-large-numbers)</p>
 <p style="margin-bottom: 0px">[From Law of large numbers to Central Limit thorem](#from-law-of-large-numbers-to-central-limit-thorem)</p>
 <p style="margin-bottom: 0px">[Central limit theorem](#central-limit-theorem)</p>
