@@ -106,7 +106,7 @@ plt.show()
 
 {::nomarkdown} 
 <figure>
-    <img src="{{ site.baseurl }}/assets/img/dice.png" >
+    <img src="/img/dice.png" >
 </figure>
 {:/}
 
@@ -140,7 +140,7 @@ plt.show()
 
 {::nomarkdown} 
 <figure>
-    <img src="{{ site.baseurl }}/assets/img/dice2.png" >
+    <img src="/img/dice2.png" >
 </figure>
 {:/}
 
@@ -182,7 +182,7 @@ plt.show()
 
 {::nomarkdown} 
 <figure>
-    <img src="{{ site.baseurl }}/assets/img/dice3.png" >
+    <img src="/img/dice3.png" >
 </figure>
 {:/}
 
@@ -204,7 +204,7 @@ plt.show()
 
 {::nomarkdown} 
 <figure>
-    <img src="{{ site.baseurl }}/assets/img/dice4.png" >
+    <img src="/img/dice4.png" >
 </figure>
 {:/}
 
@@ -304,7 +304,7 @@ for i in range(10000):
 
 {::nomarkdown} 
 <figure>
-    <img src="{{ site.baseurl }}/assets/img/mean.png" >
+    <img src="/img/mean.png" >
 </figure>
 {:/}
 
@@ -398,7 +398,7 @@ for i in range(10000):
 
 {::nomarkdown} 
 <figure>
-    <img src="{{ site.baseurl }}/assets/img/clt2.png" >
+    <img src="/img/clt2.png" >
 </figure>
 {:/}
 
@@ -504,7 +504,7 @@ plt.show()
 
 {::nomarkdown} 
 <figure>
-    <img src="{{ site.baseurl }}/assets/img/randomWalk1.png" >
+    <img src="/img/randomWalk1.png" >
 </figure>
 {:/} 
 
@@ -553,7 +553,7 @@ plt.show()
 
 {::nomarkdown} 
 <figure>
-    <img src="{{ site.baseurl }}/assets/img/randomWalk2.png" >
+    <img src="/img/randomWalk2.png" >
 </figure>
 {:/} 
 
@@ -600,7 +600,7 @@ plt.show()
 
 {::nomarkdown} 
 <figure>
-    <img src="{{ site.baseurl }}/assets/img/randomWalk3.png" >
+    <img src="/img/randomWalk3.png" >
 </figure>
 {:/} 
 
