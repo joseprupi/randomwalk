@@ -65,19 +65,15 @@ And we see the result goes to 0 as n grows:
 2.2650737015525926e-10
 ```
 
-#### From Law of large numbers to Central Limit thorem####
+#### From Law of large numbers to Central Limit thorem ####
 
 Lets take now a fair dice with same probability of returning 1, 2, 3, 4, 5 or 6 and expected value of 3.5 from:
 
+<p align="center"><img src="/tex/92104730644645cf39c4962bef1c9d32.svg?invert_in_darkmode&sanitize=true" align=middle width=194.66601495pt height=32.990165999999995pt/></p>
 
-  <p align="center"><img src="/tex/92104730644645cf39c4962bef1c9d32.svg?invert_in_darkmode&sanitize=true" align=middle width=194.66601495pt height=32.990165999999995pt/></p>
+The outcomes of the dice will produce a random variable with 6 equiprobable events and a [discrete uniform distribution ](https://en.wikipedia.org/wiki/Discrete_uniform_distribution). We can plot a set of samples as an histogram to see the shape of the results, so lets do it with 10000 dice throws:
 
-
-The dice will produce a random variable with 6 equiprobable events, and being a random variable means it is a probability distribution (more precisely it is a [discrete uniform distribution ](https://en.wikipedia.org/wiki/Discrete_uniform_distribution), and actually the previous mean could have been calculated as 
-  <img src="/tex/712b5b831e7e1c2392804a95288502c6.svg?invert_in_darkmode&sanitize=true" align=middle width=68.09132385pt height=27.77565449999998pt/>
- as is shown in the wikipedia article).
-
-As a distribution we can plot a set of samples as an histogram to see the shape of the results, so lets do it with 10000 dice throws:
+[discreteUniformDistribution.py](https://github.com/joseprupi/randomwalk/blob/master/python/discreteUniformDistribution.py)
 
 ```python
 import matplotlib.pyplot as plt
@@ -100,13 +96,13 @@ No surprises here, we closely had the six values of the dice with the same proba
 
 Now we will create another probability distribution with a new random variable. The random variable we will use now is the mean of the result of throwing the dice three times. So it will be defined as:
 
+<p align="center"><img src="/tex/af94d99de45f27617335d971965302ae.svg?invert_in_darkmode&sanitize=true" align=middle width=129.2895417pt height=31.985609699999994pt/></p>
 
-  <p align="center"><img src="/tex/af94d99de45f27617335d971965302ae.svg?invert_in_darkmode&sanitize=true" align=middle width=129.2895417pt height=31.985609699999994pt/></p>
-
-
-The outcome of the random variable is created at the same time with three other random values which are three events with 6 equiprobable results. Why not?
+The outcome of the random variable is created at the same time with three other random values which are three events with 6 equiprobable results.
 
 As we have done before we will create a set of 10000 trials for our new random variable and see the shape of the results:
+
+[discreteUniformDistribution2.py](https://github.com/joseprupi/randomwalk/blob/master/python/discreteUniformDistribution2.py)
 
 ```python
 import matplotlib.pyplot as plt
@@ -124,11 +120,9 @@ plt.hist(rolls, bins=30)
 plt.show()
 ```
 
- 
 <figure>
     <img src="/img/dice2.png" >
 </figure>
-
 
 Things change here as we see now these results have the shape of a normal distribution with mean 3.5, which makes sense. 
 
@@ -138,17 +132,13 @@ As intuition would say the graph grows as you get closer to 3.5, the expected va
 
 Lets now create another two random variables, this time we will calculate the mean for 40 and 1000 dice throws respectively.
 
-
-  <p align="center"><img src="/tex/d3fc87b4681b9aba5d4ee45a9564e65a.svg?invert_in_darkmode&sanitize=true" align=middle width=169.63194105pt height=31.985609699999994pt/></p>
-
+<p align="center"><img src="/tex/d3fc87b4681b9aba5d4ee45a9564e65a.svg?invert_in_darkmode&sanitize=true" align=middle width=169.63194105pt height=31.985609699999994pt/></p>
 
 and:
 
+<p align="center"><img src="/tex/e543f9bfb290921fe1111de0109d455e.svg?invert_in_darkmode&sanitize=true" align=middle width=182.7370248pt height=31.985609699999994pt/></p>
 
-  <p align="center"><img src="/tex/e543f9bfb290921fe1111de0109d455e.svg?invert_in_darkmode&sanitize=true" align=middle width=182.7370248pt height=31.985609699999994pt/></p>
-
-
- If we plot the results:
+If we plot the results:
 
 ```python
 import matplotlib.pyplot as plt
@@ -166,7 +156,6 @@ plt.hist(rolls, bins=30)
 plt.show()
 ```
 
- 
 <figure>
     <img src="/img/dice3.png" >
 </figure>
@@ -187,12 +176,10 @@ for i in range(10000):
 plt.hist(rolls, bins=30)
 plt.show()
 ```
-
  
 <figure>
     <img src="/img/dice4.png" >
 </figure>
-
 
 Again the outcomes shape looks like a normal distribution with mean 3.5. But something else can be seen from these two graphs, and that is the variance for the new distributions we have created seems to become smaller as we increase the number of dice throws. 
 
@@ -206,23 +193,17 @@ We can now proof matematically these results. We will first generalize our distr
 
 Where each  <img src="/tex/9fc20fb1d3825674c6a279cb0d5ca636.svg?invert_in_darkmode&sanitize=true" align=middle width=14.045887349999989pt height=14.15524440000002pt/>  has a mean of <img src="/tex/07617f9d8fe48b4a7b3f523d6730eef0.svg?invert_in_darkmode&sanitize=true" align=middle width=9.90492359999999pt height=14.15524440000002pt/>. To calculate the expected value of the new distribution we can do:
 
-
 <p align="center"><img src="/tex/0cb01a8adec86a5b76199f4a55421c8c.svg?invert_in_darkmode&sanitize=true" align=middle width=342.41918534999996pt height=49.315569599999996pt/></p>
-
 
 and we see that  <img src="/tex/07617f9d8fe48b4a7b3f523d6730eef0.svg?invert_in_darkmode&sanitize=true" align=middle width=9.90492359999999pt height=14.15524440000002pt/>  does not depend on  <img src="/tex/55a049b8f161ae7cfeb0197d75aff967.svg?invert_in_darkmode&sanitize=true" align=middle width=9.86687624999999pt height=14.15524440000002pt/> , so it does not matter how large n grows that mean will remain invariant.
 
 To get the variance:
 
-
-  <p align="center"><img src="/tex/c75a5e30c0090a65fc234db09ccc9f89.svg?invert_in_darkmode&sanitize=true" align=middle width=336.17817255pt height=49.315569599999996pt/></p>
-
+<p align="center"><img src="/tex/c75a5e30c0090a65fc234db09ccc9f89.svg?invert_in_darkmode&sanitize=true" align=middle width=336.17817255pt height=49.315569599999996pt/></p>
 
 And as all  <img src="/tex/9fc20fb1d3825674c6a279cb0d5ca636.svg?invert_in_darkmode&sanitize=true" align=middle width=14.045887349999989pt height=14.15524440000002pt/>  are independent with  <img src="/tex/e6718aa5499c31af3ff15c3c594a7854.svg?invert_in_darkmode&sanitize=true" align=middle width=16.535428799999988pt height=26.76175259999998pt/>  variance we have that:
 
-
-  <p align="center"><img src="/tex/a324154fa428d8c9ee69b05f386714e1.svg?invert_in_darkmode&sanitize=true" align=middle width=258.7593096pt height=44.89738935pt/></p>
-
+<p align="center"><img src="/tex/a324154fa428d8c9ee69b05f386714e1.svg?invert_in_darkmode&sanitize=true" align=middle width=258.7593096pt height=44.89738935pt/></p>
 
 For the variance case we see it goes to 0 when n goes to inifinity, which explains the results from the previous examples.
 
@@ -230,20 +211,15 @@ For the variance case we see it goes to 0 when n goes to inifinity, which explai
 
 We have seen the distribution for a random variable like the one shown below will be another random variable with the same mean than the underlying one and decreasing variance as n increases:
 
-
-  <p align="center"><img src="/tex/211af9d67fa4f5b871e7e0c8823365a6.svg?invert_in_darkmode&sanitize=true" align=middle width=166.6620714pt height=31.985609699999994pt/></p>
-
+<p align="center"><img src="/tex/211af9d67fa4f5b871e7e0c8823365a6.svg?invert_in_darkmode&sanitize=true" align=middle width=166.6620714pt height=31.985609699999994pt/></p>
 
 What we can do now is substract  <img src="/tex/07617f9d8fe48b4a7b3f523d6730eef0.svg?invert_in_darkmode&sanitize=true" align=middle width=9.90492359999999pt height=14.15524440000002pt/>  to this variable and see how this average is deviated from the expected value (law of large numbers). As this is the "error" of the average compared to the expected value of the underlying variable this will be some distribution centered to 0:
 
+<p align="center"><img src="/tex/db5bacad77438c75a742400214471d56.svg?invert_in_darkmode&sanitize=true" align=middle width=198.63078345pt height=31.985609699999994pt/></p>
 
-  <p align="center"><img src="/tex/db5bacad77438c75a742400214471d56.svg?invert_in_darkmode&sanitize=true" align=middle width=198.63078345pt height=31.985609699999994pt/></p>
+The underlying a variable we will use now is normally distributed <img src="/tex/167f6e4e351afcee01b683a122164c21.svg?invert_in_darkmode&sanitize=true" align=middle width=101.91950834999999pt height=26.76175259999998pt/> with <img src="/tex/63adb32d147d606f8e1634791afcba3e.svg?invert_in_darkmode&sanitize=true" align=middle width=48.26097374999999pt height=21.18721440000001pt/> and  <img src="/tex/b51117a0abc02556e865a776543584ff.svg?invert_in_darkmode&sanitize=true" align=middle width=55.71339179999999pt height=26.76175259999998pt/> , this variable would be the equivalent to the dice we used in the previous section.
 
-
-The underlying a variable we will use now is normally distributed    <img src="/tex/167f6e4e351afcee01b683a122164c21.svg?invert_in_darkmode&sanitize=true" align=middle width=101.91950834999999pt height=26.76175259999998pt/>
- with  <img src="/tex/63adb32d147d606f8e1634791afcba3e.svg?invert_in_darkmode&sanitize=true" align=middle width=48.26097374999999pt height=21.18721440000001pt/>  and  <img src="/tex/b51117a0abc02556e865a776543584ff.svg?invert_in_darkmode&sanitize=true" align=middle width=55.71339179999999pt height=26.76175259999998pt/> , this variable would be the equivalent to the dice we used in the previous section.
-
-[Entire code for graphs](https://github.com/joseprupi/stochastics/blob/master/centralLimitTheoremAverage.py)
+[centralLimitTheoremAverage.py](https://github.com/joseprupi/randomwalk/blob/master/python/centralLimitTheoremAverage.py)
 
 ```python
 
@@ -283,48 +259,36 @@ for i in range(10000):
     results.append(accum)
 
 ```
-
  
 <figure>
     <img src="/img/mean.png" >
 </figure>
 
-
-
 Red histograms show the normal distributed variable and blue ones show the result for  <img src="/tex/39642bfad803492a79c3a1f56cf48524.svg?invert_in_darkmode&sanitize=true" align=middle width=16.09594799999999pt height=22.465723500000017pt/>  which is the average of the random variable, we see the mean is the same than the normal one and the variance decreases as n increases (same behaviour as the dice example).
 
-Green histograms show  <img src="/tex/714ae8d7ded56aec38c945a07dd0f59f.svg?invert_in_darkmode&sanitize=true" align=middle width=16.09594799999999pt height=22.465723500000017pt/>  variable which again has the shape of a normal distribution. As it is the deviaton from the expected value it is centered at 0 and also gets narrower as we increase n. This makes sense to me as we have seen from the law of lage numbers that the variance keeps decreasing as we increase the number of trials for the average so the error will also decrease.
+Green histograms show <img src="/tex/714ae8d7ded56aec38c945a07dd0f59f.svg?invert_in_darkmode&sanitize=true" align=middle width=16.09594799999999pt height=22.465723500000017pt/> variable which again has the shape of a normal distribution. As it is the deviaton from the expected value it is centered at 0 and also gets narrower as we increase n. This makes sense to me as we have seen from the law of lage numbers that the variance keeps decreasing as we increase the number of trials for the average so the error will also decrease.
 
 Next step would be try to scale this new variable to something that preserves the variance of the underlying random variable, and it turns out that scaling it to  <img src="/tex/4fd78aba72015f7697ab298a89ec8a9c.svg?invert_in_darkmode&sanitize=true" align=middle width=23.565549149999992pt height=24.995338500000003pt/>  does the trick. 
 
 Actually we know that, if:
 
-
-  <p align="center"><img src="/tex/50d2594f8d481e524516e25fa88311eb.svg?invert_in_darkmode&sanitize=true" align=middle width=242.34178484999998pt height=18.312383099999998pt/></p>
-
+<p align="center"><img src="/tex/50d2594f8d481e524516e25fa88311eb.svg?invert_in_darkmode&sanitize=true" align=middle width=242.34178484999998pt height=18.312383099999998pt/></p>
 
 then:
 
-
-  <p align="center"><img src="/tex/8725c82f1523a3bf307fbc1aaaf7ca88.svg?invert_in_darkmode&sanitize=true" align=middle width=125.7324057pt height=18.312383099999998pt/></p>
-
+<p align="center"><img src="/tex/8725c82f1523a3bf307fbc1aaaf7ca88.svg?invert_in_darkmode&sanitize=true" align=middle width=125.7324057pt height=18.312383099999998pt/></p>
 
 So, if we had:
 
-
-  <p align="center"><img src="/tex/7114934f5da3d81b7b5c5231790ecfc5.svg?invert_in_darkmode&sanitize=true" align=middle width=98.74578779999999pt height=35.77743345pt/></p>
-
+<p align="center"><img src="/tex/7114934f5da3d81b7b5c5231790ecfc5.svg?invert_in_darkmode&sanitize=true" align=middle width=98.74578779999999pt height=35.77743345pt/></p>
 
 and multiply it by  <img src="/tex/4fd78aba72015f7697ab298a89ec8a9c.svg?invert_in_darkmode&sanitize=true" align=middle width=23.565549149999992pt height=24.995338500000003pt/>, then:
 
-
-  <p align="center"><img src="/tex/1a0aca0a1e6039d4edbdb0c71f997ec4.svg?invert_in_darkmode&sanitize=true" align=middle width=172.6038699pt height=35.77743345pt/></p>
-
+<p align="center"><img src="/tex/1a0aca0a1e6039d4edbdb0c71f997ec4.svg?invert_in_darkmode&sanitize=true" align=middle width=172.6038699pt height=35.77743345pt/></p>
 
 So lets create now below random variable with same underlying variable X and add it to previous graphs in orange:
 
-
-  <p align="center"><img src="/tex/58246ad6f8b6693d8fa0ecc5ac9e5189.svg?invert_in_darkmode&sanitize=true" align=middle width=234.98176515pt height=31.985609699999994pt/></p>
+<p align="center"><img src="/tex/58246ad6f8b6693d8fa0ecc5ac9e5189.svg?invert_in_darkmode&sanitize=true" align=middle width=234.98176515pt height=31.985609699999994pt/></p>
 
 
 ```python
